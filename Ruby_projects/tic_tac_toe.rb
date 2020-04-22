@@ -1,106 +1,123 @@
-class Board
-  def initialize
-    @spaces = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
-    puts
-    puts
-    gen_board
-    puts
-    puts
-  end
-  def gen_board
-    puts column1 = [" #{@spaces[0]} | #{@spaces[1]} | #{@spaces[2]} "] 
-    puts rows = "-----------"
-    puts column2 = [" #{@spaces[3]} | #{@spaces[4]} | #{@spaces[5]} "] 
-    puts rows
-    puts column3 = [" #{@spaces[6]} | #{@spaces[7]} | #{@spaces[8]} "]
-  end
-
-  def place_piece(square, piece)
-    spaces[square] = piece
-  end
-
-  def space_empty?(square)
-    spaces[square] == " "
-  end
+class Players
+  attr_reader :player_1, :player_2
   
-  attr_accessor :spaces
+  def initialize
+    @player_1 = "Player_1"
+    @player_2 = "Player_2"
+  end
 end
 
-class Player
-  def initialize(name, piece)
-    @name = name
-    @piece = piece
+class Symbols
+  attr_reader :player_1_symbol, :player_2_symbol
+
+  def initialize
+    @player_1_symbol = "X"
+    @player_2_symbol = "O"
+  end
+end
+
+class Board
+  attr_accessor :spot
+  
+  def initialize
+    @spot = Array.new(9, " ")
+  end
+
+  def display_board
+    puts "   |   |   "
+    puts " #{spot[0]} | #{spot[1]} | #{spot[2]} "
+    puts "___|___|___"
+    puts "   |   |   "
+    puts " #{spot[3]} | #{spot[4]} | #{spot[5]} "
+    puts "___|___|___"
+    puts "   |   |   "
+    puts " #{spot[6]} | #{spot[7]} | #{spot[8]} "
+    puts "   |   |   "
   end
 end
 
 class Game
-  attr_reader :player1, :player2, :board
+  attr_accessor :players, :symbols, :board
+  
   def initialize
-    @player1 = Player.new("Player 1", "x")
-    @player2 = Player.new("Player 2", "o")
-    @board = Board.new
-    puts "Play by inputting games name, in this case 'game', then 'move(#)'. So game.move(1) would put your piece in the first spot. Spaces go by row, so the first space on the first row is 1, then 4 for the next row, etc."
-    puts
-    puts "Now... without further ado.. Player 1's turn."
-    puts
-    @who_just_went = ""
-  end
-  protected
-  def who_just_went=(who_just_went)
-    @who_just_went = who_just_went
+    @players = Players.new()
+    @symbols = Symbols.new()
+    @board = Board.new()
   end
 
-  public
-  def move(square)
-    if @who_just_went != player1
-      if @board.space_empty?(square - 1)
-         @board.place_piece(square - 1, "x")
-         @who_just_went = player1
-      else puts "That spot is already taken, please try again."
-      end
-    else
-      if @board.space_empty?(square - 1)
-        @board.place_piece(square - 1, "0")
-         @who_just_went = player2
-      else puts "That spot is already taken, please try again."
+  def play
+    puts "Are you ready to play Tic Tac Toe? You can play by choosing a number between 1 and 9. Player 1 is \"X\" and Player 2 is \"O\"."
+    whose_turn = "Player 1"
+    turn_counter = 0
+    next_turn = false
+    while turn_counter != 9
+      if whose_turn == "Player 1"
+        board.display_board
+        next_turn = false
+        puts "It's Player 1's turn."
+        player_choice = gets.chomp.to_i
+        while next_turn == false
+          if (1..9).include? player_choice
+            if board.spot[player_choice - 1] == " "
+              board.spot[player_choice - 1] = symbols.player_1_symbol
+              whose_turn = "Player 2"
+              turn_counter += 1
+              winner
+              next_turn = true
+            else
+              puts "That spot is already taken. Please try again."
+              board.display_board
+              player_choice = gets.chomp.to_i
+            end
+          else 
+            puts "Sorry, it looks like that wasn't a valid entry. Would you please enter a number between 1 and 9?"
+            board.display_board
+            player_choice = gets.chomp.to_i
+          end
+        end
+      else
+        board.display_board
+        puts "It's Player 2's turn."
+        player_choice = gets.chomp.to_i
+        next_turn = false
+        while next_turn == false
+          if (1..9).include? player_choice
+            if board.spot[player_choice - 1] == " "
+              board.spot[player_choice - 1] = symbols.player_2_symbol
+              whose_turn = "Player 1"
+              turn_counter += 1
+              winner
+              next_turn = true
+            else
+              puts "That spot is already taken. Please try again."
+              board.display_board
+              player_choice = gets.chomp.to_i
+            end
+          else 
+            puts "Sorry, it looks like that wasn't a valid entry. Would you please enter a number between 1 and 9?"
+            board.display_board
+            player_choice = gets.chomp.to_i
+          end
+        end
       end
     end
-    puts
-    puts
-    board.gen_board
-    puts
-    puts
-    winner
-    puts
-    puts
-    puts
+    board.display_board
+    puts "It's a tie game!"
   end
-
-  private
+  
   def winner
-    if board.spaces[0] == "x" && board.spaces[1] == "x" && board.spaces[2] == "x" || board.spaces[3] == "x" && board.spaces[4] == "x" && board.spaces[5] == "x" || board.spaces[6] == "x" && board.spaces[7] == "x" && board.spaces[8] == "x" || board.spaces[0] == "x" && board.spaces[3] == "x" && board.spaces[6] == "x" || board.spaces[1] == "x" && board.spaces[4] == "x" && board.spaces[7] == "x" || board.spaces[2] == "x" && board.spaces[5] == "x" && board.spaces[8] == "x" || board.spaces[0] == "x" && board.spaces[4] == "x" && board.spaces[8] == "x" || board.spaces[2] == "x" && board.spaces[4] == "x" && board.spaces[6] == "x"
-      puts "Player 1 wins!"
-      puts
-      puts
+    if board.spot[0] == "X" && board.spot[1] == "X" && board.spot[2] == "X" || board.spot[3] == "X" && board.spot[4] == "X" && board.spot[5] == "X" || board.spot[6] == "X" && board.spot[7] == "X" && board.spot[8] == "X" || board.spot[0] == "X" && board.spot[3] == "X" && board.spot[6] == "X" || board.spot[1] == "X" && board.spot[4] == "X" && board.spot[7] == "X" || board.spot[2] == "X" && board.spot[5] == "X" && board.spot[8] == "X" || board.spot[0] == "X" && board.spot[4] == "X" && board.spot[8] == "X" || board.spot[2] == "X" && board.spot[4] == "X" && board.spot[6] == "X"
+      puts "Player 1 has won!"
+      board.display_board
       exit
-    elsif board.spaces[0] == "o" && board.spaces[1] == "o" && board.spaces[2] == "o" || board.spaces[3] == "o" && board.spaces[4] == "o" && board.spaces[5] == "o" || board.spaces[6] == "o" && board.spaces[7] == "o" && board.spaces[8] == "o" || board.spaces[0] == "o" && board.spaces[3] == "o" && board.spaces[6] == "o" || board.spaces[1] == "o" && board.spaces[4] == "o" && board.spaces[7] == "o" || board.spaces[2] == "o" && board.spaces[5] == "o" && board.spaces[8] == "o" || board.spaces[0] == "o" && board.spaces[4] == "o" && board.spaces[8] == "o" || board.spaces[2] == "o" && board.spaces[4] == "o" && board.spaces[6] == "o"
-      puts "Player 2 wins!"
-      puts
-      puts
+    end
+    if board.spot[0] == "O" && board.spot[1] == "O" && board.spot[2] == "O" || board.spot[3] == "O" && board.spot[4] == "O" && board.spot[5] == "O" || board.spot[6] == "O" && board.spot[7] == "O" && board.spot[8] == "O" || board.spot[0] == "O" && board.spot[3] == "O" && board.spot[6] == "O" || board.spot[1] == "O" && board.spot[4] == "O" && board.spot[7] == "O" || board.spot[2] == "O" && board.spot[5] == "O" && board.spot[8] == "O" || board.spot[0] == "O" && board.spot[4] == "O" && board.spot[8] == "O" || board.spot[2] == "O" && board.spot[4] == "O" && board.spot[6] == "O"
+      puts "Player 2 has won!"
+      board.display_board
       exit
-    elsif board.spaces[0..-1].none? " "
-      puts "It's a draw!"
-      puts
-      puts
-      exit
-    else
-      if @who_just_went == player1
-        puts
-        puts "It is player 2's turn."
-      else
-        puts
-        puts "It is player 1's turn."
-      end
     end
   end
 end
+
+game = Game.new()
+game.play
