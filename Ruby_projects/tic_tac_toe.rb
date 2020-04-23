@@ -1,6 +1,6 @@
 class Players
   attr_reader :player_1, :player_2
-  
+
   def initialize
     @player_1 = "Player_1"
     @player_2 = "Player_2"
@@ -38,7 +38,6 @@ end
 
 class Game
   attr_accessor :players, :symbols, :board
-  
   def initialize
     @players = Players.new()
     @symbols = Symbols.new()
@@ -104,7 +103,9 @@ class Game
     board.display_board
     puts "It's a tie game!"
   end
-  
+
+  private
+
   def winner
     if board.spot[0] == "X" && board.spot[1] == "X" && board.spot[2] == "X" || board.spot[3] == "X" && board.spot[4] == "X" && board.spot[5] == "X" || board.spot[6] == "X" && board.spot[7] == "X" && board.spot[8] == "X" || board.spot[0] == "X" && board.spot[3] == "X" && board.spot[6] == "X" || board.spot[1] == "X" && board.spot[4] == "X" && board.spot[7] == "X" || board.spot[2] == "X" && board.spot[5] == "X" && board.spot[8] == "X" || board.spot[0] == "X" && board.spot[4] == "X" && board.spot[8] == "X" || board.spot[2] == "X" && board.spot[4] == "X" && board.spot[6] == "X"
       puts "Player 1 has won!"
