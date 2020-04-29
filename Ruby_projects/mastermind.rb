@@ -1,200 +1,261 @@
-class Game
-  attr_accessor :code, :round, :who
-  def start
-    @code = Colors.new
-    @who = Choosing_role.new
-    @who.choose_your_role
-    if @who.choice == "code maker"
-      code.player_choose_code
-      @round = Rounds.new.round(@code, @who)
-    else
-      @code.computer_choose_code
-      puts "Code breaker, you must crack the code. Choose from the following colors: \n\n#{code.color1}\n#{code.color2}\n#{code.color3}\n#{code.color4}\n#{code.color5}\n#{code.color6}\n\n"
-      @round = Rounds.new.round(@code, @who)
-    end
-  end
-end
-
-class Rounds
-  attr_accessor :code, :current_round, :hints, :correct_position
-  def round(code, who)
-    @code = code
-    @current_round = 1
-    total_rounds = 12
-    @guess = []
-    while @current_round <= total_rounds
-      puts "There are #{total_rounds - @current_round} chances remaining to break the code after this, what is the code breakers guess?"
-      counter = 0
-      @correct_position = 0
-      puts
-      correct_color = 0
-      if who.choice == "code maker" && @guess.length != 0
-        a = 0
-        other = []
-        while a < 4
-          if @guess[a] == "..#{code.arr2[a]}"
-            @guess[a] = @code.arr2[a]
-            other << @guess[a]
-          elsif @guess[a] == ".#{code.arr2[0]}"
-            @guess[a] = code.arr2[0]
-            other << @guess[a]
-          elsif @guess[a] == ".#{code.arr2[1]}"
-            @guess[a] = code.arr2[1]
-            other << @guess[a]
-          elsif @guess[a] == ".#{code.arr2[2]}"
-            @guess[a] = code.arr2[2]
-            other << @guess[a]
-          elsif @guess[a] == ".#{code.arr2[3]}"
-            @guess[a] = code.arr2[3]
-            other << @guess[a]
-          else
-            @guess[a] = @code.arr.sample
-            other << @guess[a]
-          end
-          a += 1
-        end
-        while other.length != 0
-          b = 0
-          g = 0
-          while b < 4
-            if @guess[b] == code.arr2[b]
-              @guess[b] = other[0]
-              b += 1
-              other.shift
-            elsif @guess[b] == other[0]
-              other.shift
-              other << @guess[b]
-              g += 1
-              if g == 5
-                @guess[b] = other[0]
-                other.shift
-                b += 1
-                g = 0
-              end
-            else
-              @guess[b] = other[0]
-              b += 1
-              other.shift
-            end
-          end
-        end
-        puts @guess
-      elsif who.choice == "code breaker"
-        @guess = []
-        4.times { @guess << gets.chomp }
-      else
-        g = 0
-        while g < 4
-          @guess[g] = @code.arr.sample
-          g += 1
-        end
-      end
-      puts
-      @hints = Red_and_white_pegs.new.hints(counter, @guess, @correct_position, correct_color, @code, @current_round, who)
-      @current_round += 1
-    end
-  end
-end
-
-class Choosing_role
-  attr_accessor :choice
+class Player
   def initialize
-    @choice = ""
-  end
-  def choose_your_role
-    puts "Do you want to be the code maker or code breaker?"
-    until @choice == "code maker" || @choice == "code breaker"
-      @choice = gets.chomp
-      if @choice == "code maker"
-        puts "Sweet! Let's get you setup with your options."
-      elsif @choice == "code breaker"
-      else
-        puts "Sorry, I didn't quite get that. Could you type it again?"
-      end
-    end
+    @player_1 = "player_1"
+    @player_2 = "player_2"
   end
 end
 
 class Colors
-  attr_accessor :color1, :color2, :color3, :color4, :color5, :color6, :arr2, :player_color1, :player_color2, :player_color3, :player_color4, :arr
+  attr_reader :color_1, :color_2, :color_3, :color_4, :color_5, :color_6
+
   def initialize
-    @color1 = "blue"
-    @color2 = "green"
-    @color3 = "yellow"
-    @color4 = "red"
-    @color5 = "white"
-    @color6 = "black"
-    @arr = [@color1, @color2, @color3, @color4, @color5, @color6]
-    @arr2 = []
-  end
-  def computer_choose_code
-    4.times { @arr2 << @arr.sample }
-  end
-  def player_choose_code
-    puts "Choose a 4 length combination from the following colors. You can choose multiple of the same color. Choose between \n\n#{@color1}\n#{@color2}\n#{@color3}\n#{@color4}\n#{@color5}\n#{@color6}\n\n"
-    @player_color1 = gets.chomp
-    @player_color2 = gets.chomp
-    @player_color3 = gets.chomp
-    @player_color4 = gets.chomp
-    @arr2 = [@player_color1, @player_color2, @player_color3, @player_color4]
-    puts "Your chosen code is #{@arr2[0]}, #{@arr2[1]}, #{@arr2[2]}, #{@arr2[3]}."
+    @color_1 = "red"
+    @color_2 = "blue"
+    @color_3 = "green"
+    @color_4 = "white"
+    @color_5 = "black"
+    @color_6 = "yellow"
   end
 end
 
-class Red_and_white_pegs
-  attr_accessor :correct_position
-  def hints(counter, guess, correct_position, correct_color, code, current_round, who)
+class SecretCode
+  attr_reader :choice, :colors, :secret_code
+
+  def initialize 
+    @secret_code = []
+    @colors = Colors.new
+    @choice = ""
+  end
+
+  def intro
+    puts "Welcome to Mastermind! Would you like to be the codemaker or codebreaker?"
+    puts
+    @choice = gets.chomp
+    puts
     e = 0
-    @correct_position = correct_position
-    while e != 1 
-      while counter != 4
-        if guess[counter] == code.arr2[counter]
-          guess[counter] = "..#{guess[counter]}"
-          code.arr2[counter] = "..#{guess[counter]}"
-          @correct_position += 1
-          counter += 1
-        else
-          counter += 1
-        end
-      end
-      counter = 0
-      while counter != 4
-        t = 0
-        if code.arr2.include? guess[counter]
-          while t != 4
-            if code.arr2[t] == guess[counter]
-              guess[counter] = ".#{guess[counter]}"
-              code.arr2[t] = ".#{guess[counter]}"
-              t += 1
-              correct_color += 1
-            else
-              t += 1
-            end
-          end
-          counter += 1
-        else
-          counter += 1
-        end
-      end
-        code.arr2.map! { |x| x.gsub(/[[:punct:]]/, "") }
-        puts "#{@correct_position} of these are the correct color in the correct place."
-        puts "#{correct_color} of these are the correct color in the wrong place."
-        e += 1
+    while e == 0
+      if @choice == "codemaker"
+        e = 1
+      elsif @choice == "codebreaker"
+        e = 1
+      else
+        puts "Whoops, could you try entering that again? Would you like to be the codemaker or codebreaker?"
         puts
-        win = Winnable.new.win_checker(@correct_position, current_round, code)
+        @choice = gets.chomp
+      end
+    end
+  end
+
+  def human_generate_secret
+    puts "Alright then. Let's have you choose the colors. They can be #{colors.color_1}, #{colors.color_2}, #{colors.color_3}, #{colors.color_4}, #{colors.color_5}, or #{colors.color_6}."
+    puts
+    @secret_code = []
+    while secret_code.count != 6
+      secret_combo = gets.chomp
+      if secret_combo == colors.color_1 || secret_combo == colors.color_2 || secret_combo == colors.color_3 || secret_combo == colors.color_4 || secret_combo == colors.color_5 || secret_combo == colors.color_6
+        @secret_code << secret_combo
+      else
+        puts
+        puts
+        puts "Sorry, that is not one of the choices. Try again."
+        puts
+      end
+    end
+  end
+
+  def computer_generate_secret
+    color_array = [colors.color_1, colors.color_2, colors.color_3, colors.color_4, colors.color_5, colors.color_6]
+    while secret_code.count != 6
+        secret_code << color_array.sample
     end
   end
 end
 
-class Winnable
-  def win_checker(correct_position, current_round, code)
-    if correct_position == 4
-      puts "The code breaker wins!\nThe code was: \n#{code.arr2[0]}\n#{code.arr2[1]}\n#{code.arr2[2]}\n#{code.arr2[3]}"
-      exit
-    elsif current_round == 12
-      puts "The code maker wins!\nThe code was: \n#{code.arr2[0]}\n#{code.arr2[1]}\n#{code.arr2[2]}\n#{code.arr2[3]}"
-      exit
+class Turn
+  attr_reader :colors, :secret_code
+
+  def initialize
+    @turn_number = 1
+    @secret_code = []
+    @colors = Colors.new
+  end
+
+  def human_turn
+    @secret_code = []
+    puts "Let's have you guess 6 colors."
+    puts
+    while secret_code.count != 6
+      secret_combo = gets.chomp
+      if secret_combo == colors.color_1 || secret_combo == colors.color_2 || secret_combo == colors.color_3 || secret_combo == colors.color_4 || secret_combo == colors.color_5 || secret_combo == colors.color_6
+        secret_code << secret_combo
+      else
+        puts "Sorry, that is not one of the choices. Try again."
+      end
+    end
+  end
+
+  def computer_turn(secret, turn)
+    elsewhere_index_array = []
+    elsewhere_color_array = []
+    array_of_colors = [colors.color_1, colors.color_2, colors.color_3, colors.color_4, colors.color_5, colors.color_6]
+    t = 0
+    sleep 1
+    if turn == 1
+      while t != 6
+        secret_code << array_of_colors.sample
+        t += 1
+      end
     else
+      while t != 6
+        if secret_code[t] == secret[t]
+          secret_code[t] = secret[t]
+          t += 1
+        else
+          elsewhere_index_array << t
+          elsewhere_color_array << secret_code[t]
+          secret_code[t] = ""
+          t += 1
+        end
+      end
+      u = 0
+      somewhere_in_the_secret = []
+      while u < elsewhere_index_array.count
+        k = 0
+        while k < elsewhere_index_array.count
+          if elsewhere_color_array[u] == secret[elsewhere_index_array[k]]
+            somewhere_in_the_secret << elsewhere_color_array[u]
+            secret[elsewhere_index_array[k]] = ".#{secret[elsewhere_index_array[k]]}"
+          end 
+          k += 1
+        end
+        u += 1
+      end
+      secret.map! { |a| a.gsub(/\./,"") }
+      g = 0
+      while g < somewhere_in_the_secret.count
+        if g + 1 == somewhere_in_the_secret.count
+          secret_code[elsewhere_index_array[g]] = somewhere_in_the_secret[0]
+        else
+          secret_code[elsewhere_index_array[g]] = somewhere_in_the_secret[g + 1]
+        end
+        g += 1
+      end
+      m = 0
+      while m != 6
+        if secret_code[m] == ""
+          secret_code[m] << array_of_colors.sample
+        end
+        m += 1
+      end 
     end
   end
 end
+
+class Hints
+
+  def initialize
+    @red_counter = 0
+    @white_counter = 0
+    @iterate_over_the_guess = 0
+    @iterate_over_the_secret = 0
+  end
+
+  def red_hint(codemaker, codebreaker)
+    red_counter = 0
+    iterate_over_the_secret = 0
+    iterate_over_the_guess = 0
+    while iterate_over_the_secret <= codemaker.count
+      iterate_over_the_guess = 0
+      while iterate_over_the_guess < codemaker.count
+        if codebreaker[iterate_over_the_guess] == codemaker[iterate_over_the_guess]
+          codemaker[iterate_over_the_guess] = ".#{codemaker[iterate_over_the_guess]}"
+          codebreaker[iterate_over_the_guess] = "..#{codebreaker[iterate_over_the_guess]}"
+          red_counter += 1
+        end
+        iterate_over_the_guess += 1
+      end
+      iterate_over_the_secret += 1
+    end
+    puts "The codemaker places #{red_counter} red pegs."
+    iterate_over_the_secret = 0
+    iterate_over_the_guess = 0
+  end
+
+  def white_hint(codemaker, codebreaker)
+    white_counter = 0
+    iterate_over_the_guess = 0
+    iterate_over_the_secret = 0
+    while iterate_over_the_secret <= codemaker.count
+      iterate_over_the_guess = 0
+      while iterate_over_the_guess < codemaker.count
+        if codebreaker[iterate_over_the_guess] == codemaker[iterate_over_the_secret]
+          codemaker[iterate_over_the_secret] = ".#{codemaker[iterate_over_the_secret]}"
+          codebreaker[iterate_over_the_guess] = "..#{codebreaker[iterate_over_the_guess]}"
+          white_counter += 1
+        end
+        iterate_over_the_guess += 1
+      end
+      iterate_over_the_secret += 1
+    end
+    puts "The codemaker places #{white_counter} white pegs."
+    iterate_over_the_secret = 0
+    iterate_over_the_guess = 0
+    codebreaker.map! { |a| a.gsub(/\.\./,"") }
+    codemaker.map! { |a| a.gsub(/\./,"") }
+  end
+
+end
+
+class Game
+ attr_reader :code_path, :turn, :hint
+
+ def initialize
+  @code_path = SecretCode.new
+  @turn = Turn.new
+  @hint = Hints.new
+ end
+
+  def play
+    number_of_turns = 12
+    turn_number = 1
+    code_path.intro
+    if code_path.choice == "codebreaker"
+      puts
+      puts "The computer is now generating the code..."
+      puts
+      code_path.computer_generate_secret 
+    else
+      code_path.human_generate_secret
+    end
+    while turn_number <= number_of_turns
+      if code_path.choice == "codebreaker"
+        turn.human_turn 
+      else 
+        turn.computer_turn(code_path.secret_code, turn_number)
+      end
+      if turn.secret_code == code_path.secret_code
+        puts
+        puts "The codebreaker wins! Their final guess was"
+        puts
+        puts turn.secret_code
+        exit
+      else
+        turn_number += 1
+        puts
+        hint.red_hint(code_path.secret_code, turn.secret_code)
+        hint.white_hint(code_path.secret_code, turn.secret_code)
+        puts
+        puts "You have #{number_of_turns - turn_number + 1} turns left."
+        puts
+      end
+    end
+    puts "The codemaker wins! The codebreakers final guess was"
+    puts turn.secret_code
+    puts "----------"
+    puts "The secret was #{code_path.secret_code}"
+    puts "----------"
+  end
+end
+
+Game1 = Game.new
+Game1.play
