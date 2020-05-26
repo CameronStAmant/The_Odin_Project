@@ -104,3 +104,9 @@ class Node
   end
 
 end
+
+L = LinkedList.new
+L.append(2)
+L.append(5)
+L.append(4)
+p L
