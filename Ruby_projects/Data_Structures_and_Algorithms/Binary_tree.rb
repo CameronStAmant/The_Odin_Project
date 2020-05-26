@@ -207,7 +207,6 @@ class Tree
     preorder(@root.left_child)
     @balance_counter -= 1
     level_order(@root.left_child)
-    # puts "--- #{@height_array.size}"
     if @height_array[0].nil?
       left_height = 0
       @height_array << Node.new("nil")
@@ -225,7 +224,6 @@ class Tree
     preorder(@root.right_child)
     @balance_counter -= 1
     level_order(@root.right_child)
-    # puts "--- #{@height_array.size}"
     if @height_array[0].nil?
       right_height = 0
       @height_array << Node.new("nil")
@@ -243,14 +241,8 @@ class Tree
   end
 
   def rebalance!
-    # build_tree(@original.shuffle!)
     a = @original
     build_tree(a)
-    # balanced?
-    # if @balanced == 1
-    # else
-    #   rebalance!
-    # end
   end
 
 end

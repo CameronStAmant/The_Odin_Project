@@ -142,12 +142,3 @@ end
 
 player = Knight.new
 player.knight_moves([3,3], [4,3])
-
-
-=begin
-
-.* Calculate possible moves.
-.* Figure out how to get to endpoint
-* Ensure fastest route possible is taken
-
-=end
