@@ -1,2 +1,2 @@
 # The_Odin_Project
-Course work from throughout The Odin Project.
+Course work from The Odin Project.
