@@ -37,7 +37,7 @@ class Board
 end
 
 class Game
-  attr_accessor :players, :symbols, :board
+  attr_accessor :players, :symbols, :board, :has_won
   def initialize
     @players = Players.new()
     @symbols = Symbols.new()
@@ -62,6 +62,9 @@ class Game
               whose_turn = "Player 2"
               turn_counter += 1
               winner
+              if @has_won == true
+                return "Player 1 has won!"
+              end
               next_turn = true
             else
               puts "That spot is already taken. Please try again."
@@ -70,7 +73,7 @@ class Game
             end
           else 
             puts "Sorry, it looks like that wasn't a valid entry. Would you please enter a number between 1 and 9?"
-            board.display_board
+            # board.display_board
             player_choice = gets.chomp.to_i
           end
         end
@@ -86,6 +89,9 @@ class Game
               whose_turn = "Player 1"
               turn_counter += 1
               winner
+              if @has_won == true
+                return "Player 2 has won!"
+              end
               next_turn = true
             else
               puts "That spot is already taken. Please try again."
@@ -102,23 +108,34 @@ class Game
     end
     board.display_board
     puts "It's a tie game!"
+    return "It's a tie game!"
   end
 
   private
 
   def winner
     if board.spot[0] == "X" && board.spot[1] == "X" && board.spot[2] == "X" || board.spot[3] == "X" && board.spot[4] == "X" && board.spot[5] == "X" || board.spot[6] == "X" && board.spot[7] == "X" && board.spot[8] == "X" || board.spot[0] == "X" && board.spot[3] == "X" && board.spot[6] == "X" || board.spot[1] == "X" && board.spot[4] == "X" && board.spot[7] == "X" || board.spot[2] == "X" && board.spot[5] == "X" && board.spot[8] == "X" || board.spot[0] == "X" && board.spot[4] == "X" && board.spot[8] == "X" || board.spot[2] == "X" && board.spot[4] == "X" && board.spot[6] == "X"
-      puts "Player 1 has won!"
       board.display_board
+      @has_won = true
+      return "Player 1 has won!"
       exit
     end
     if board.spot[0] == "O" && board.spot[1] == "O" && board.spot[2] == "O" || board.spot[3] == "O" && board.spot[4] == "O" && board.spot[5] == "O" || board.spot[6] == "O" && board.spot[7] == "O" && board.spot[8] == "O" || board.spot[0] == "O" && board.spot[3] == "O" && board.spot[6] == "O" || board.spot[1] == "O" && board.spot[4] == "O" && board.spot[7] == "O" || board.spot[2] == "O" && board.spot[5] == "O" && board.spot[8] == "O" || board.spot[0] == "O" && board.spot[4] == "O" && board.spot[8] == "O" || board.spot[2] == "O" && board.spot[4] == "O" && board.spot[6] == "O"
-      puts "Player 2 has won!"
       board.display_board
+      @has_won = true
+      return "Player 2 has won!"
       exit
     end
   end
 end
 
-game = Game.new()
-game.play
+class Test
+
+  def tester
+    return "hi"
+  end
+  
+end
+
+# game = Game.new()
+# game.play
