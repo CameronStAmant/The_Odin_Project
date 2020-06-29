@@ -216,6 +216,31 @@ describe Game do
       expect(game.move("3,6","1,0")).to eql("You must move your king!")
     end
 
+    it "allows the black team to capture the white piece that is putting them in check" do
+      game = Game.new
+      game.move("7,5","-2,0")
+      game.move("2,5","1,0")
+      game.move("7,4","-2,0")
+      game.move("1,4","2,2")
+      game.move("8,4","-2,0")
+      game.move("3,6","1,-1")
+      game.move("7,1","-1,0")
+      game.move("4,5","1,0")
+      expect(game.move("6,4","-1,1")).to eql("Successful move.")
+    end
+
+    it "allows the white team to capture the white piece that is putting them in check" do
+      game = Game.new
+      game.move("7,4","-2,0")
+      game.move("2,1","2,0")
+      game.move("8,4","-2,0")
+      game.move("2,5","2,0")
+      game.move("6,4","0,1")
+      game.move("1,4","2,2")
+      game.move("6,5","-2,0")
+      expect(game.move("3,6","1,-1")).to eql("Successful move.")
+    end
+
 # black rook
 
     it "allows the black rook to move in any direction" do
