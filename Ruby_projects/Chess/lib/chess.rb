@@ -45,11 +45,21 @@ class Game
       if (human == nil)
         if (@turn == "black") && @black_king_check == true 
           if piece != "\u265A"
-            return "You must move your king!"
+            move(starting,ending,"a")
+            if check? == "Check!"
+              return "You must move your king!"
+            else
+              return "Successful move."
+            end
           end
-        elsif @white_king_check == true
+        elsif (@turn == "white") && @white_king_check == true
           if piece != "\u2654"
-            return "You must move your king!"
+            move(starting,ending,"a")
+            if check? == "Check!"
+              return "You must move your king!"
+            else
+              return "Successful move."
+            end
           end
         end
       end
