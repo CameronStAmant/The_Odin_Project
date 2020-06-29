@@ -139,6 +139,34 @@ describe Game do
       expect(game.move("2,7","2,0")).to eql("You must move your king!")
     end
 
+    it "allows the black king to get out of check" do
+      game = Game.new
+      game.move("7,5","-1,0")
+      game.move("1,2", "2,1")
+      game.move("7,2","-1,0")
+      game.move("3,3","2,1")
+      game.move("7,3","-1,0")
+      game.move("5,4","1,2")
+      game.move("8,5","-1,0")
+      game.move("2,1","1,0")
+      expect(game.move("7,1","-1,0")).to eql("Successful move.")
+    end
+
+    it "allows the white king to get out of check" do
+      game = Game.new
+      game.move("7,4","-2,0")
+      game.move("2,1","2,0")
+      game.move("8,4","-2,0")
+      game.move("2,5","2,0")
+      game.move("6,4","0,1")
+      game.move("1,4","2,2")
+      game.move("6,5","-2,0")
+      game.move("1,5","0,-1")
+      game.move("7,1","-1,0")
+      expect(game.move("2,2","1,0")).to eql("Successful move.")
+      puts game.board.display_board
+    end
+
 # black rook
 
     it "allows the black rook to move in any direction" do

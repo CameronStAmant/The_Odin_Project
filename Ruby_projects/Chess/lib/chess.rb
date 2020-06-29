@@ -53,6 +53,8 @@ class Game
           end
         end
       end
+      @black_king_check = false
+      @white_king_check = false
       if 
         (piece == @pieces.rook_black && @pieces.rook_potential_moves.include?(ending)) || 
         (piece == @pieces.knight_black && @pieces.knight_potential_moves.include?(ending)) || 
