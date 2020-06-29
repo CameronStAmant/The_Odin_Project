@@ -3,7 +3,7 @@ require_relative "pieces"
 require "yaml"
 
 class Game
-  attr_reader :board, :turn, :potential_black_moves, :potential_white_moves, :black_position_locator, :white_position_locator, :landing, :black_king_check, :white_king_check, :actual_turn, :black, :white
+  attr_reader :board, :turn, :potential_black_moves, :potential_white_moves, :black_position_locator, :white_position_locator, :landing, :black_king_check, :white_king_check, :actual_turn, :black, :white, :final, :starting
 
   def initialize
     @board = Board.new
@@ -19,6 +19,8 @@ class Game
     @actual_turn = ""
     @black = ["\u265A", "\u265B", "\u265C", "\u265D", "\u265E", "\u265F"]
     @white = ["\u2654", "\u2655", "\u2656", "\u2657", "\u2658", "\u2659"]
+    @final = ""
+    @starting = ""
   end
 
   def move(starting = nil, ending = nil, human = nil)
@@ -60,11 +62,12 @@ class Game
         (piece == @pieces.pawn_white && @pieces.pawn_white_potential_diagonal_moves.include?(ending))
         
         start = starting.split(",")
+        @starting = starting
         move = ending.split(",")
         c = start[0].to_i + move[0].to_i
         d = start[1].to_i + move[1].to_i
-        final = "#{c},#{d}"
-        final_split = final.split(",")
+        @final = "#{c},#{d}"
+        final_split = @final.split(",")
         if (human == nil)
           if (@turn == "black") && @black_king_check == true 
             if piece != "\u265A"
@@ -72,7 +75,7 @@ class Game
               @turn = "black"
               if check? == "Check!"
                 @board.board[starting] = piece
-                @board.board[final] = " "
+                @board.board[@final] = " "
                 return "You must move your king!"
               else
                 return "Successful move."
@@ -84,7 +87,7 @@ class Game
               @turn = "white"
               if check? == "Check!"
                 @board.board[starting] = piece
-                @board.board[final] = " "
+                @board.board[@final] = " "
                 return "You must move your king!"
               else
                 return "Successful move."
@@ -95,9 +98,9 @@ class Game
         @black_king_check = false
         @white_king_check = false
   
-        if @board.board.include? final
+        if @board.board.include? @final
           if (piece == @pieces.pawn_black) || (piece == @pieces.pawn_white)
-            if ((@turn == "white") && (@black.include? @board.board[final]) && (ending == "2,0" || ending == "1,0")) || ((@turn == "black") && (@white.include? @board.board[final]) && (ending == "-2,0" || ending == "-1,0"))
+            if ((@turn == "white") && (@black.include? @board.board[@final]) && (ending == "2,0" || ending == "1,0")) || ((@turn == "black") && (@white.include? @board.board[@final]) && (ending == "-2,0" || ending == "-1,0"))
               return "The pawn cannot do that action."
             end
             if ((ending == "-2,0") && piece == @pieces.pawn_black) || ((ending == "2,0") && piece == @pieces.pawn_white)
@@ -112,16 +115,16 @@ class Game
             end
           end
           if @turn == "black"
-            if @black.include? @board.board[final]
+            if @black.include? @board.board[@final]
               return "You cannot move onto one of your pieces."
             end
           else
-            if @white.include? @board.board[final]
+            if @white.include? @board.board[@final]
               return "You cannot move onto one of your pieces."
             end
           end
           if (piece == @pieces.knight_black) || (piece == @pieces.knight_white)
-            @board.board[final] = @board.board[starting]
+            @board.board[@final] = @board.board[starting]
             @board.board[starting] = " "
             if @turn == "black"
               @turn = "white"
@@ -131,7 +134,7 @@ class Game
             if (human == nil)
               check?
             end
-            @landing = final
+            @landing = @final
             return "Successful move."
           else
             if (piece == @pieces.queen_black) || (piece == @pieces.queen_white)
@@ -184,8 +187,8 @@ class Game
                 else
                   all_moves = true
                 end
-              elsif (piece == @pieces.bishop_black) || (queen == "diagonal") || (king == "diagonal") || (piece == @pieces.bishop_white) || ((piece == @pieces.pawn_black) && (@pieces.pawn_black_potential_diagonal_moves.include?(ending)) && (white.include? @board.board[final])) || ((piece == @pieces.pawn_white) && (@pieces.pawn_white_potential_diagonal_moves.include?(ending)) && (black.include? @board.board[final]))
-                if start.join(",") != final
+              elsif (piece == @pieces.bishop_black) || (queen == "diagonal") || (king == "diagonal") || (piece == @pieces.bishop_white) || ((piece == @pieces.pawn_black) && (@pieces.pawn_black_potential_diagonal_moves.include?(ending)) && (white.include? @board.board[@final])) || ((piece == @pieces.pawn_white) && (@pieces.pawn_white_potential_diagonal_moves.include?(ending)) && (black.include? @board.board[@final]))
+                if start.join(",") != @final
                   if move[0].to_i < 0
                     step = "#{start[0].to_i - 1}, 0"
                     step_split = step.split(",")
@@ -221,44 +224,44 @@ class Game
           path.each do |x|
             if (black.include? @board.board[x]) || (white.include? @board.board[x])
               if x == path[-1]
-                @board.board[final] = @board.board[starting]
+                @board.board[@final] = @board.board[starting]
                 @board.board[starting] = " "
                 if @turn == "black"
                   @turn = "white"
                 else
                   @turn = "black"
                 end
-                if (((piece == @pieces.pawn_black) && (["1,1","1,2","1,3","1,4","1,5","1,6","1,7","1,8"].include? final)) || ((piece == @pieces.pawn_white) && (["8,1","8,2","8,3","8,4","8,5","8,6","8,7","8,8"].include? final)))
+                if (((piece == @pieces.pawn_black) && (["1,1","1,2","1,3","1,4","1,5","1,6","1,7","1,8"].include? @final)) || ((piece == @pieces.pawn_white) && (["8,1","8,2","8,3","8,4","8,5","8,6","8,7","8,8"].include? @final)))
                   if human == nil
                     puts "What would you like to upgrade to?"
                     if piece == @pieces.pawn_black
-                      until @board.board[final] == "\u265B" || @board.board[final] == "\u265D" || @board.board[final] == "\u265E" || @board.board[final] == "\u265C"
+                      until @board.board[@final] == "\u265B" || @board.board[@final] == "\u265D" || @board.board[@final] == "\u265E" || @board.board[@final] == "\u265C"
                         upgrade = STDIN.gets.chomp
                         case upgrade
                         when "queen"
-                          @board.board[final] = "\u265B"
+                          @board.board[@final] = "\u265B"
                         when "bishop"
-                          @board.board[final] = "\u265D"
+                          @board.board[@final] = "\u265D"
                         when "knight"
-                          @board.board[final] = "\u265E"
+                          @board.board[@final] = "\u265E"
                         when "rook"
-                          @board.board[final] = "\u265C"
+                          @board.board[@final] = "\u265C"
                         else
                           puts "That is not a queen, bishop, knight, or rook. Please choose again."
                         end
                       end
                     else
-                      until @board.board[final] == "\u2655" || @board.board[final] == "\u2657" || @board.board[final] == "\u2658" || @board.board[final] == "\u2656"
+                      until @board.board[@final] == "\u2655" || @board.board[@final] == "\u2657" || @board.board[@final] == "\u2658" || @board.board[@final] == "\u2656"
                         upgrade = STDIN.gets.chomp
                         case upgrade
                         when "queen"
-                          @board.board[final] = "\u2655"
+                          @board.board[@final] = "\u2655"
                         when "bishop"
-                          @board.board[final] = "\u2657"
+                          @board.board[@final] = "\u2657"
                         when "knight"
-                          @board.board[final] = "\u2658"
+                          @board.board[@final] = "\u2658"
                         when "rook"
-                          @board.board[final] = "\u2656"
+                          @board.board[@final] = "\u2656"
                         else
                           puts "That is not a queen, bishop, knight, or rook. Please choose again."
                         end
@@ -266,23 +269,23 @@ class Game
                     end
                   else
                     if piece == @pieces.pawn_black
-                      @board.board[final] = "\u265B"
+                      @board.board[@final] = "\u265B"
                     else
-                      @board.board[final] = "\u2655"
+                      @board.board[@final] = "\u2655"
                     end
                   end
                 end
                 if (human == nil)
                   check?
                 end
-                @landing = final
+                @landing = @final
                 return "Successful move."
               else
               return "You cannot move through pieces."
               end
             end
           end
-          @board.board[final] = @board.board[starting]
+          @board.board[@final] = @board.board[starting]
           @board.board[starting] = " "
           if @turn == "black"
             @turn = "white"
@@ -351,10 +354,10 @@ class Game
           move = y.split(",")
           c = start[0].to_i + move[0].to_i
           d = start[1].to_i + move[1].to_i
-          final = "#{c},#{d}"
-          if black_position_locator.include? final
+          @final = "#{c},#{d}"
+          if black_position_locator.include? @final
           else
-            @potential_black_moves << final
+            @potential_black_moves << @final
           end
         else
           @turn = black_turn
@@ -387,10 +390,10 @@ class Game
           move = y.split(",")
           c = start[0].to_i + move[0].to_i
           d = start[1].to_i + move[1].to_i
-          final = "#{c},#{d}"
-          if white_position_locator.include? final
+          @final = "#{c},#{d}"
+          if white_position_locator.include? @final
           else
-            @potential_white_moves << final
+            @potential_white_moves << @final
           end
         else
           @turn = white_turn
@@ -416,16 +419,55 @@ class Game
   end
 
   def checkmate?
-    move_generator
-    @turn = @actual_turn
-    if @potential_white_moves.include? @board.board.key("\u265A")
-      @black_king_check = true
-      return "Check!"
-    elsif @potential_black_moves.include? @board.board.key("\u2654")
-      @white_king_check = true
-      return "Check!"
+    counter = 0
+    if @turn == "white"
+      @pieces.king_potential_moves.each do |x|
+        move(@board.board.key("\u265A"),x)
+        @turn = "white"
+        if check? == "Check!"
+        else
+          counter += 1
+          puts x
+          puts "You are not stuck."
+        end
+        @board.board[@starting] = "\u265A"
+        @board.board[@final] = " "
+      end
+    end
+    if counter == 0
+      puts "checkma"
+      return "Checkmate!"
     else
-      return "Successful move."
+      return "Not checkmate"
     end
   end
 end
+
+
+# if (human == nil)
+#   if (@turn == "black") && @black_king_check == true 
+#     if piece != "\u265A"
+#       move(starting,ending,"a")
+#       @turn = "black"
+#       if check? == "Check!"
+#         @board.board[starting] = piece
+#         @board.board[@final] = " "
+#         return "You must move your king!"
+#       else
+#         return "Successful move."
+#       end
+#     end
+#   elsif (@turn == "white") && @white_king_check == true
+#     if piece != "\u2654"
+#       move(starting,ending,"a")
+#       @turn = "white"
+#       if check? == "Check!"
+#         @board.board[starting] = piece
+#         @board.board[@final] = " "
+#         return "You must move your king!"
+#       else
+#         return "Successful move."
+#       end
+#     end
+#   end
+# end
