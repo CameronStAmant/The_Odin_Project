@@ -42,29 +42,6 @@ class Game
       end
     else
       piece = @board.board[starting]
-      if (human == nil)
-        if (@turn == "black") && @black_king_check == true 
-          if piece != "\u265A"
-            move(starting,ending,"a")
-            if check? == "Check!"
-              return "You must move your king!"
-            else
-              return "Successful move."
-            end
-          end
-        elsif (@turn == "white") && @white_king_check == true
-          if piece != "\u2654"
-            move(starting,ending,"a")
-            if check? == "Check!"
-              return "You must move your king!"
-            else
-              return "Successful move."
-            end
-          end
-        end
-      end
-      @black_king_check = false
-      @white_king_check = false
       if 
         (piece == @pieces.rook_black && @pieces.rook_potential_moves.include?(ending)) || 
         (piece == @pieces.knight_black && @pieces.knight_potential_moves.include?(ending)) || 
@@ -88,6 +65,36 @@ class Game
         d = start[1].to_i + move[1].to_i
         final = "#{c},#{d}"
         final_split = final.split(",")
+        if (human == nil)
+          if (@turn == "black") && @black_king_check == true 
+            if piece != "\u265A"
+              move(starting,ending,"a")
+              @turn = "black"
+              if check? == "Check!"
+                @board.board[starting] = piece
+                @board.board[final] = " "
+                return "You must move your king!"
+              else
+                return "Successful move."
+              end
+            end
+          elsif (@turn == "white") && @white_king_check == true
+            if piece != "\u2654"
+              move(starting,ending,"a")
+              @turn = "white"
+              if check? == "Check!"
+                @board.board[starting] = piece
+                @board.board[final] = " "
+                return "You must move your king!"
+              else
+                return "Successful move."
+              end
+            end
+          end
+        end
+        @black_king_check = false
+        @white_king_check = false
+  
         if @board.board.include? final
           if (piece == @pieces.pawn_black) || (piece == @pieces.pawn_white)
             if ((@turn == "white") && (@black.include? @board.board[final]) && (ending == "2,0" || ending == "1,0")) || ((@turn == "black") && (@white.include? @board.board[final]) && (ending == "-2,0" || ending == "-1,0"))

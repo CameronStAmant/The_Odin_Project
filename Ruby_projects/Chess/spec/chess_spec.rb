@@ -188,10 +188,7 @@ describe Game do
       game.move("6,4","0,1")
       game.move("1,4","2,2")
       game.move("6,5","-2,0")
-      game.move("1,5","0,-1")
-      game.move("7,1","-1,0")
-      puts game.board.display_board
-      expect(game.move("2,2","1,0")).to eql("Successful move.")
+      expect(game.move("3,6","0,-1")).to eql("Successful move.")
     end
 
     it "requires the black king to move if the next move does not get them out of check" do
@@ -208,7 +205,15 @@ describe Game do
     end
 
     it "requires the white king to move if the next move does not get them out of check" do
-
+      game = Game.new
+      game.move("7,4","-2,0")
+      game.move("2,1","2,0")
+      game.move("8,4","-2,0")
+      game.move("2,5","2,0")
+      game.move("6,4","0,1")
+      game.move("1,4","2,2")
+      game.move("6,5","-2,0")
+      expect(game.move("3,6","1,0")).to eql("You must move your king!")
     end
 
 # black rook
