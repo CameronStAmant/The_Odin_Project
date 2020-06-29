@@ -266,27 +266,27 @@ describe Game do
       puts game.board.display_board
     end
 
-    # it "allows the white king to be put into checkmate" do
-    #   game = Game.new
-    #   game.move("7,5","-1,0")
-    #   game.move("2,5","1,0")
-    #   game.move("8,5","-1,0")
-    #   game.move("1,4","2,2")
-    #   game.move("7,5","-1,-1")
-    #   game.move("3,6","3,0")
-    #   game.move("6,4","-1,-1")
-    #   game.move("2,8","1,0")
-    #   game.move("5,3","-1,-1")
-    #   game.move("6,6","-1,0")
-    #   game.move("7,4","-1,0")
-    #   game.move("5,6","0,-2")
-    #   game.move("6,5","-1,0")
-    #   game.move("2,2","1,0")
-    #   game.move("7,8","-1,0")
-    #   puts game.board.display_board
-    #   expect(game.move("2,1","1,0")).to eql("Checkmate!")
-    #   puts game.board.display_board
-    # end
+    it "checks if the black king is in checkmate normal" do
+      game = Game.new
+      game.move("7,5","-1,0")
+      game.move("2,5","1,0")
+      game.move("8,5","-1,0")
+      game.move("1,4","2,2")
+      game.move("7,5","-1,-1")
+      game.move("3,6","3,0")
+      game.move("6,4","-1,-1")
+      game.move("2,8","1,0")
+      game.move("5,3","-1,-1")
+      game.move("6,6","-1,0")
+      game.move("7,4","-1,0")
+      game.move("5,6","0,-2")
+      game.move("6,5","-1,0")
+      game.move("2,2","1,0")
+      game.move("7,8","-1,0")
+      puts game.board.display_board
+      expect(game.move("2,1","1,0")).to eql("Checkmate!")
+      puts game.board.display_board
+    end
 
 # black rook
 
