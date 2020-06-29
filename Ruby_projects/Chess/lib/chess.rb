@@ -414,4 +414,18 @@ class Game
       return "Successful move."
     end
   end
+
+  def checkmate?
+    move_generator
+    @turn = @actual_turn
+    if @potential_white_moves.include? @board.board.key("\u265A")
+      @black_king_check = true
+      return "Check!"
+    elsif @potential_black_moves.include? @board.board.key("\u2654")
+      @white_king_check = true
+      return "Check!"
+    else
+      return "Successful move."
+    end
+  end
 end
