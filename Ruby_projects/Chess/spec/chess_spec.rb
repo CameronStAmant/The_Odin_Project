@@ -266,7 +266,7 @@ describe Game do
       puts game.board.display_board
     end
 
-    it "checks if the black king is in checkmate normal" do
+    it "checks if the black king is checkmated" do
       game = Game.new
       game.move("7,5","-1,0")
       game.move("2,5","1,0")
