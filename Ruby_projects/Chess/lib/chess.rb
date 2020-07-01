@@ -97,15 +97,15 @@ class Game
         end
 
         ##
-        # if (human == nil)
-        #   if (@turn == "white") && (piece == "\u2654") && (@white_king_check == false)
-        #     if check? == "Check!"
-        #       puts "yes check"
-        #     else
-        #       puts "no check"
-        #     end
-        #   end
-        # end
+        if (human == nil)
+          if (@turn == "white") && (piece == "\u2654") && (@white_king_check == false)
+            if check? == "Check!"
+              # puts "yes check"
+            else
+              # puts "no check"
+            end
+          end
+        end
         ##
         @black_king_check = false
         @white_king_check = false
