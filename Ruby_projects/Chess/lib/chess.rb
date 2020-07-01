@@ -95,6 +95,18 @@ class Game
             end
           end
         end
+
+        ##
+        # if (human == nil)
+        #   if (@turn == "white") && (piece == "\u2654") && (@white_king_check == false)
+        #     if check? == "Check!"
+        #       puts "yes check"
+        #     else
+        #       puts "no check"
+        #     end
+        #   end
+        # end
+        ##
         @black_king_check = false
         @white_king_check = false
   
@@ -118,7 +130,7 @@ class Game
             if @black.include? @board.board[@final]
               return "You cannot move onto one of your pieces."
             end
-          else
+          elsif @turn == "white"
             if @white.include? @board.board[@final]
               return "You cannot move onto one of your pieces."
             end
@@ -427,15 +439,29 @@ class Game
         if check? == "Check!"
         else
           counter += 1
-          puts x
-          puts "You are not stuck."
+          # puts x
+          # puts "You are not stuck."
         end
         @board.board[@starting] = "\u265A"
         @board.board[@final] = " "
       end
+    elsif @turn == "black"
+      @pieces.king_potential_moves.each do |x|
+        move(@board.board.key("\u2654"),x)
+        @turn = "black"
+        if check? == "Check!"
+        else
+          counter += 1
+          # puts x
+          # puts "You are not stuck."
+        end
+        @board.board[@starting] = "\u2654"
+        @board.board[@final] = " "
+      end
     end
-    if counter == 0
-      puts "checkma"
+    move_generator
+    if (counter == 0) && ((@potential_white_moves.include? @board.board.key("\u265A")) || (@potential_black_moves.include? @board.board.key("\u2654")))
+      # puts "checkmate!!!!"
       return "Checkmate!"
     else
       return "Not checkmate"
