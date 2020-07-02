@@ -509,16 +509,33 @@ class Game
     until @checkmate == true
       puts "Please enter the location of the piece followed by the movement you would like it to make."
       puts @board.display_board
-      a = gets.chomp
+      p @turn
+      act_turn = @turn.dup
+      if @turn == "black"
+        a = gets.chomp
+        position_locator
+        until @black_position_locator.include? a
+          puts "please try again"
+          a = gets.chomp
+        end
+      elsif @turn == "white"
+        a = gets.chomp
+        position_locator
+        until @white_position_locator.include? a
+          puts "please try again"
+          a = gets.chomp
+        end
+      end
+      # a = gets.chomp
       b = gets.chomp
       movement(a,b)
-      if @turn == "black"
+      if act_turn == "black"
         @turn = "white"
       else
         @turn = "black"
       end
-    end
     puts @board.display_board
+    end
   end
 end
 
