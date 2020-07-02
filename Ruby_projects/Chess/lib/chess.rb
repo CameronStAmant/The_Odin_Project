@@ -429,19 +429,21 @@ class Game
     end
   end
 
-  def checkmate?
+  def checkmate?(starting = nil, ending = nil)
     counter = 0
-    if @turn == "white"
-      @pieces.king_potential_moves.each do |x|
-        move(@board.board.key("\u265A"),x)
-        @turn = "white"
-        if check? == "Check!"
-        else
-          counter += 1
-        end
-        @board.board[@starting] = "\u265A"
-        @board.board[@final] = " "
-      end
+    # p @turn
+    # if @turn == "white"
+    #   @pieces.king_potential_moves.each do |x|
+    #     move(@board.board.key("\u265A"),x)
+    #     @turn = "white"
+    #     if check? == "Check!"
+    #     else
+    #       counter += 1
+    #     end
+    #     @board.board[x] = "\u265A"
+    #     @board.board[x] = " "
+    #   end
+    #   @turn = "white"
     # elsif @turn == "black"
     #   @pieces.king_potential_moves.each do |x|
     #     move(@board.board.key("\u2654"),x)
@@ -450,21 +452,41 @@ class Game
     #     else
     #       counter += 1
     #     end
-    #     @board.board[@starting] = "\u2654"
-    #     @board.board[@final] = " "
+    #     @board.board[x] = "\u2654"
+    #     @board.board[x] = " "
     #   end
-    end
+    # end
+    # p starting
+    # p ending
+    start = starting.split(",")
+    # @starting = starting
+    move = ending.split(",")
+    c = start[0].to_i + move[0].to_i
+    d = start[1].to_i + move[1].to_i
+    final = "#{c},#{d}"
+    # p final
     move_generator
     if (counter == 0) && ((@potential_white_moves.include? @board.board.key("\u265A")) || (@potential_black_moves.include? @board.board.key("\u2654")))
-      return "Checkmate!"
+      # p @board.board[final]
+      if @board.board[final] == "\u265A"
+        @board.board[starting] = "\u265A"
+        @board.board[final] = " "
+        return "You can't put your king in check!"
+      elsif @board.board[final] == "\u2654"
+        @board.board[starting] = "\u2654"
+        @board.board[final] = " "
+        return "You can't put your king in check!"
+      else
+        return "Checkmate!"
+      end
     else
       return "Not checkmate"
     end
   end
 
-  def move1(a,b)
+  def movement(a,b)
     move(a,b)
-    checkmate?
+    checkmate?(a,b)
   end
 end
 
