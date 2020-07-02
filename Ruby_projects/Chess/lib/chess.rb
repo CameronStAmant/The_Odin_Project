@@ -95,17 +95,6 @@ class Game
             end
           end
         end
-        # if (human == nil)
-        #   if (@turn == "white") && (piece == "\u2654") && (@white_king_check == false)
-        #     if @potential_black_moves.include? (@final)
-        #       return "You can't put yourself in check."
-        #     end
-        #   elsif (@turn == "black") && (piece == "\u265A") && (@black_king_check == false)
-        #     if @potential_white_moves.include? (@final)
-        #       return "You can't put yourself in check."
-        #     end
-        #   end
-        # end
         @black_king_check = false
         @white_king_check = false
   
@@ -485,36 +474,11 @@ class Game
   end
 
   def movement(a,b)
+    puts "please enter the location of the piece followed by the movement you would like it to make"
     move(a,b)
     checkmate?(a,b)
   end
 end
 
-
-# if (human == nil)
-#   if (@turn == "black") && @black_king_check == true 
-#     if piece != "\u265A"
-#       move(starting,ending,"a")
-#       @turn = "black"
-#       if check? == "Check!"
-#         @board.board[starting] = piece
-#         @board.board[@final] = " "
-#         return "You must move your king!"
-#       else
-#         return "Successful move."
-#       end
-#     end
-#   elsif (@turn == "white") && @white_king_check == true
-#     if piece != "\u2654"
-#       move(starting,ending,"a")
-#       @turn = "white"
-#       if check? == "Check!"
-#         @board.board[starting] = piece
-#         @board.board[@final] = " "
-#         return "You must move your king!"
-#       else
-#         return "Successful move."
-#       end
-#     end
-#   end
-# end
+game = Game.new
+game.movement
