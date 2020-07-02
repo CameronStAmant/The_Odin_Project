@@ -279,9 +279,7 @@ describe Game do
       game.move("6,5","-2,0")
       game.move("1,5","0,-1")
       game.move("7,1","-1,0")
-      puts game.board.display_board
       expect(game.movement("1,4","0,1")).to eql("You can't put your king in check!")
-      puts game.board.display_board
     end
 
 #checkmate
@@ -873,7 +871,6 @@ describe Game do
     it "allows a game to be played" do
       game = Game.new
       game.movement("7,1","-2,0")
-      puts game.board.display_board
     end
   end
 end

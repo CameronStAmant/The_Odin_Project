@@ -3,7 +3,7 @@ require_relative "pieces"
 require "yaml"
 
 class Game
-  attr_reader :board, :turn, :potential_black_moves, :potential_white_moves, :black_position_locator, :white_position_locator, :landing, :black_king_check, :white_king_check, :actual_turn, :black, :white, :final, :starting
+  attr_reader :board, :turn, :potential_black_moves, :potential_white_moves, :black_position_locator, :white_position_locator, :landing, :black_king_check, :white_king_check, :actual_turn, :black, :white, :final, :starting, :checkmate
 
   def initialize
     @board = Board.new
@@ -21,6 +21,7 @@ class Game
     @white = ["\u2654", "\u2655", "\u2656", "\u2657", "\u2658", "\u2659"]
     @final = ""
     @starting = ""
+    @checkmate = false
   end
 
   def move(starting = nil, ending = nil, human = nil)
@@ -32,6 +33,9 @@ class Game
       })
       game_file.puts saving
       game_file.close
+      if human == nil
+        puts "Game saved!"
+      end
       return "Game saved!"
     elsif starting == "load"
       if File.exist?("Saved_Game")
@@ -40,7 +44,10 @@ class Game
         @board = contents[:board]
         @turn = contents[:turn]
         game_file.close
-      return "Game loaded!"
+        if human == nil
+          puts "Game loaded!"
+        end
+        return "Game loaded!"
       end
     else
       piece = @board.board[starting]
@@ -76,8 +83,14 @@ class Game
               if check? == "Check!"
                 @board.board[starting] = piece
                 @board.board[@final] = " "
+                if human == nil
+                  puts "You must move your king!"
+                end
                 return "You must move your king!"
               else
+                if human == nil
+                  puts "Successful move."
+                end
                 return "Successful move."
               end
             end
@@ -88,8 +101,14 @@ class Game
               if check? == "Check!"
                 @board.board[starting] = piece
                 @board.board[@final] = " "
+                if human == nil
+                  puts "You must move your king!"
+                end
                 return "You must move your king!"
               else
+                if human == nil
+                  puts "Successful move."
+                end
                 return "Successful move."
               end
             end
@@ -101,14 +120,23 @@ class Game
         if @board.board.include? @final
           if (piece == @pieces.pawn_black) || (piece == @pieces.pawn_white)
             if ((@turn == "white") && (@black.include? @board.board[@final]) && (ending == "2,0" || ending == "1,0")) || ((@turn == "black") && (@white.include? @board.board[@final]) && (ending == "-2,0" || ending == "-1,0"))
+              if human == nil
+                puts "The pawn cannot do that action."
+              end
               return "The pawn cannot do that action."
             end
             if ((ending == "-2,0") && piece == @pieces.pawn_black) || ((ending == "2,0") && piece == @pieces.pawn_white)
               if ((starting.include? "7,") && piece == @pieces.pawn_black) || ((starting.include? "2,") && piece == @pieces.pawn_white)
               else
                 if piece == @pieces.pawn_black
+                  if human == nil
+                    puts "The black pawn can only move two on their initial move. Please choose again."
+                  end
                   return "The black pawn can only move two on their initial move. Please choose again."
                 else
+                  if human == nil
+                    puts "The white pawn can only move two on their initial move. Please choose again."
+                  end
                   return "The white pawn can only move two on their initial move. Please choose again."
                 end
               end
@@ -116,10 +144,16 @@ class Game
           end
           if @turn == "black"
             if @black.include? @board.board[@final]
+              if human == nil
+                puts "You cannot move onto one of your pieces."
+              end
               return "You cannot move onto one of your pieces."
             end
           elsif @turn == "white"
             if @white.include? @board.board[@final]
+              if human == nil
+                puts "You cannot move onto one of your pieces."
+              end
               return "You cannot move onto one of your pieces."
             end
           end
@@ -135,6 +169,9 @@ class Game
               check?
             end
             @landing = @final
+            if human == nil
+              puts "Successful move."
+            end
             return "Successful move."
           else
             if (piece == @pieces.queen_black) || (piece == @pieces.queen_white)
@@ -217,6 +254,9 @@ class Game
                   all_moves = true
                 end
               else
+                if human == nil
+                  puts "Bad move"
+                end
                 return "Bad move."
               end
             end
@@ -279,8 +319,14 @@ class Game
                   check?
                 end
                 @landing = @final
+                if human == nil
+                  puts "Successful move."
+                end
                 return "Successful move."
               else
+                if human == nil
+                  puts "You cannot move through pieces."
+                end
               return "You cannot move through pieces."
               end
             end
@@ -292,11 +338,20 @@ class Game
           else
             @turn = "black"
           end
+          if human == nil
+            puts "Successful move."
+          end
           return "Successful move."
         else
+          if human == nil
+            puts "That is an illegal move inner."
+          end
           return "That is an illegal move inner."
         end
       else
+        if human == nil
+          puts "That is an illegal move."
+        end
         return "That is an illegal move."
       end
     end
@@ -420,35 +475,7 @@ class Game
 
   def checkmate?(starting = nil, ending = nil)
     counter = 0
-    # p @turn
-    # if @turn == "white"
-    #   @pieces.king_potential_moves.each do |x|
-    #     move(@board.board.key("\u265A"),x)
-    #     @turn = "white"
-    #     if check? == "Check!"
-    #     else
-    #       counter += 1
-    #     end
-    #     @board.board[x] = "\u265A"
-    #     @board.board[x] = " "
-    #   end
-    #   @turn = "white"
-    # elsif @turn == "black"
-    #   @pieces.king_potential_moves.each do |x|
-    #     move(@board.board.key("\u2654"),x)
-    #     @turn = "black"
-    #     if check? == "Check!"
-    #     else
-    #       counter += 1
-    #     end
-    #     @board.board[x] = "\u2654"
-    #     @board.board[x] = " "
-    #   end
-    # end
-    # p starting
-    # p ending
     start = starting.split(",")
-    # @starting = starting
     move = ending.split(",")
     c = start[0].to_i + move[0].to_i
     d = start[1].to_i + move[1].to_i
@@ -456,7 +483,6 @@ class Game
     # p final
     move_generator
     if (counter == 0) && ((@potential_white_moves.include? @board.board.key("\u265A")) || (@potential_black_moves.include? @board.board.key("\u2654")))
-      # p @board.board[final]
       if @board.board[final] == "\u265A"
         @board.board[starting] = "\u265A"
         @board.board[final] = " "
@@ -466,6 +492,7 @@ class Game
         @board.board[final] = " "
         return "You can't put your king in check!"
       else
+        @checkmate = true
         return "Checkmate!"
       end
     else
@@ -474,11 +501,26 @@ class Game
   end
 
   def movement(a,b)
-    puts "please enter the location of the piece followed by the movement you would like it to make"
     move(a,b)
     checkmate?(a,b)
+  end
+
+  def ui
+    until @checkmate == true
+      puts "Please enter the location of the piece followed by the movement you would like it to make."
+      puts @board.display_board
+      a = gets.chomp
+      b = gets.chomp
+      movement(a,b)
+      if @turn == "black"
+        @turn = "white"
+      else
+        @turn = "black"
+      end
+    end
+    puts @board.display_board
   end
 end
 
 game = Game.new
-game.movement
+game.ui
