@@ -12,15 +12,10 @@ describe Game do
     it "allows a player to move onto an enemies space" do
       game = Game.new
       game.move("8,2", "-2,1")
-      # puts game.board.display_board
       game.move("2,1","1,0")
-      # puts game.board.display_board
       game.move("6,3", "-2,1")
-      # puts game.board.display_board
       game.move("2,2","1,0")
-      # puts game.board.display_board
       expect(game.move("4,4", "-2,1")).to eql("Successful move.")
-      # puts game.board.display_board
     end
 
     it "does not allow any pieces, other than knights, to move through other pieces" do
@@ -229,7 +224,7 @@ describe Game do
       expect(game.move("6,4","-1,1")).to eql("Successful move.")
     end
 
-    it "allows the white team to capture the white piece that is putting them in check" do
+    it "allows the white team to capture the black piece that is putting them in check" do
       game = Game.new
       game.move("7,4","-2,0")
       game.move("2,1","2,0")
@@ -241,73 +236,102 @@ describe Game do
       expect(game.move("3,6","1,-1")).to eql("Successful move.")
     end
 
-    it "does not allow the black king to put themselves into check" do
+    # it "does not allow the black king to put themselves into check" do
+    #   game = Game.new
+    #   game.move("7,5","-1,0")
+    #   game.move("2,5","1,0")
 
-    end
+    #   game.move("8,5","-1,0")
+    #   game.move("1,4","2,2")
 
-    it "does not allow the white king to put themselves into check" do
-      game = Game.new
-      game.move("7,1","-2,0")
-      game.move("2,5","1,0")
+    #   game.move("7,5","-1,-1")
+    #   game.move("3,6","3,0")
 
-      game.move("8,1","-2,0")
-      game.move("1,5","1,0")
+    #   game.move("6,4","-1,-1")
+    #   game.move("2,8","1,0")
 
-      game.move("6,1","0,1")
-      game.move("2,5","1,1")
+    #   game.move("5,3","-1,-1")
+    #   game.move("6,6","-1,0")
 
-      game.move("6,2","-1,0")
-      game.move("3,6","1,0")
+    #   game.move("7,8","-2,0")
+    #   game.move("5,6","0,-2")
 
-      game.move("5,2","-1,0")
-      game.move("4,6","1,0")
+    #   game.move("6,5","-1,0")
+    #   game.move("2,2","1,0")
 
-      game.move("7,6","-1,0")
-      game.move("2,1","1,0")
+    #   game.move("8,8","-2,0")
+    #   game.move("2,7","1,0")
 
-      game.move("7,7", "-2,0")
-      game.move("2,2", "1,0")
+    #   game.move("6,8","0,-7")
+    #   game.move("2,6","1,0")
 
-      game.move("7,8", "-2,0")
-      game.move("2,3", "1,0")
+    #   puts game.board.display_board
+    #   expect(game.move("4,2","1,0")).to eql("You can't put yourself in check.")
+    #   puts game.board.display_board
+    # end
 
-      game.move("7,5", "-2,0")
-      game.move("5,6", "1,1")
+    # it "does not allow the white king to put themselves into check" do
+    #   game = Game.new
+    #   game.move("7,1","-2,0")
+    #   game.move("2,5","1,0")
 
-      game.move("8,8", "-1,0")
-      game.move("2,4", "1,0")
+    #   game.move("8,1","-2,0")
+    #   game.move("1,5","1,0")
 
-      game.move("4,2", "1,0")
-      game.move("2,6", "1,0")
+    #   game.move("6,1","0,1")
+    #   game.move("2,5","1,1")
 
-      game.move("7,4", "-2,0")
-      game.move("2,7", "1,0")
+    #   game.move("6,2","-1,0")
+    #   game.move("3,6","1,0")
 
-      game.move("5,5", "-1,0")
-      game.move("2,8", "1,0")
+    #   game.move("5,2","-1,0")
+    #   game.move("4,6","1,0")
 
-      game.move("5,4", "-1,0")
-      game.move("3,1", "1,0")
+    #   game.move("7,6","-1,0")
+    #   game.move("2,1","1,0")
 
-      game.move("5,7", "-1,0")
-      game.move("3,2", "1,0")
+    #   game.move("7,7", "-2,0")
+    #   game.move("2,2", "1,0")
 
-      game.move("6,6", "-1,0")
-      game.move("3,3", "1,0")
+    #   game.move("7,8", "-2,0")
+    #   game.move("2,3", "1,0")
 
-      game.move("5,6", "-1,0")
-      game.move("4,2", "1,-1")
+    #   game.move("7,5", "-2,0")
+    #   game.move("5,6", "1,1")
+
+    #   game.move("8,8", "-1,0")
+    #   game.move("2,4", "1,0")
+
+    #   game.move("4,2", "1,0")
+    #   game.move("2,6", "1,0")
+
+    #   game.move("7,4", "-2,0")
+    #   game.move("2,7", "1,0")
+
+    #   game.move("5,5", "-1,0")
+    #   game.move("2,8", "1,0")
+
+    #   game.move("5,4", "-1,0")
+    #   game.move("3,1", "1,0")
+
+    #   game.move("5,7", "-1,0")
+    #   game.move("3,2", "1,0")
+
+    #   game.move("6,6", "-1,0")
+    #   game.move("3,3", "1,0")
+
+    #   game.move("5,6", "-1,0")
+    #   game.move("4,2", "1,-1")
       
-      game.move("8,4", "-1,0")
-      game.move("3,8", "1,0")
+    #   game.move("8,4", "-1,0")
+    #   game.move("3,8", "1,0")
 
-      game.move("8,7", "-2,1")
-      game.move("3,7", "1,-1")
+    #   game.move("8,7", "-2,1")
+    #   game.move("3,7", "1,-1")
 
-      game.move("4,7", "-1,0")
-      expect(game.move("6,7", "1,-1")).to eql("That is an illegal move.")
-      puts game.board.display_board
-    end
+    #   game.move("4,7", "-1,0")
+    #   expect(game.move("6,7", "1,-1")).to eql("You can't put yourself in check.")
+    # end
 
 #checkmate
 
@@ -329,7 +353,10 @@ describe Game do
       game.move("2,2","1,0")
       game.move("7,8","-1,0")
       game.move("2,1","1,0")
+      puts game.board.display_board
       expect(game.checkmate?).to eql("Checkmate!")
+      puts game.board.display_board
+
     end
 
     it "confirms the white king is checkmated" do
@@ -395,11 +422,10 @@ describe Game do
       game.move("6,7", "0,-1")
 
       game.move("7,4", "-1,0")
-      puts game.board.display_board
       expect(game.checkmate?).to eql("Checkmate!")
     end
 
-    it "allows the white king to get out of checkmate by capturing the checking peice from the other team" do
+    it "allows the white king to get out of checkmate by capturing the checking piece from the other team" do
       game = Game.new
       game.move("7,1","-2,0")
       game.move("2,5","1,0")
@@ -465,10 +491,33 @@ describe Game do
       game.move("4,3", "1,0")
 
       game.move("7,4", "-1,0")
-      game.checkmate?
       game.move("5,3", "1,1")
-      puts game.board.display_board
       expect(game.checkmate?).to eql("Not checkmate")
+    end
+
+    it "implements checkmate into the game for the black king" do
+      game = Game.new
+      game.move("7,5","-1,0")
+      game.move("2,5","1,0")
+      game.move("8,5","-1,0")
+      game.move("1,4","2,2")
+      game.move("7,5","-1,-1")
+      game.move("3,6","3,0")
+      game.move("6,4","-1,-1")
+      game.move("2,8","1,0")
+      game.move("5,3","-1,-1")
+      game.move("6,6","-1,0")
+      game.move("7,4","-1,0")
+      game.move("5,6","0,-2")
+      game.move("6,5","-1,0")
+      game.move("2,2","1,0")
+      game.move("7,8","-1,0")
+      puts game.board.display_board
+      expect(game.move1("2,1","1,0")).to eql("Checkmate!")
+      puts game.board.display_board
+    end
+
+    it "implements checkmate into the game for the white king" do
     end
 # black rook
 
