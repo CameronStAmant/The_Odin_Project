@@ -52,12 +52,6 @@ describe Game do
       expect(game.move("load")).to eql("Game loaded!")
     end
 
-    it "does not allow players to only give a starting location" do
-    end
-
-    it "does not allow players to only give a move action" do
-    end
-
 #move_generator
 
   describe "#move_generator" do
@@ -119,7 +113,7 @@ describe Game do
       game.move("3,3","2,1")
       game.move("7,3","-1,0")
       game.move("5,4","1,2")
-      expect(game.move("7,1","-1,0")).to eql("You must move your king!")
+      expect(game.move("7,1","-1,0")).to eql("You must protect your king!")
     end
 
     it "enforces the white king to move after being checked" do
@@ -131,7 +125,7 @@ describe Game do
       game.move("6,4","0,1")
       game.move("2,8","1,0")
       game.move("6,5","-2,0")
-      expect(game.move("2,7","2,0")).to eql("You must move your king!")
+      expect(game.move("2,7","2,0")).to eql("You must protect your king!")
     end
 
     it "allows the black king to get out of check" do
@@ -196,7 +190,7 @@ describe Game do
       game.move("3,6","1,-1")
       game.move("7,1","-1,0")
       game.move("4,5","1,0")
-      expect(game.move("7,2","-1,0")).to eql("You must move your king!")
+      expect(game.move("7,2","-1,0")).to eql("You must protect your king!")
     end
 
     it "requires the white king to move if the next move does not get them out of check" do
@@ -208,7 +202,7 @@ describe Game do
       game.move("6,4","0,1")
       game.move("1,4","2,2")
       game.move("6,5","-2,0")
-      expect(game.move("3,6","1,0")).to eql("You must move your king!")
+      expect(game.move("3,6","1,0")).to eql("You must protect your king!")
     end
 
     it "allows the black team to capture the white piece that is putting them in check" do
@@ -264,7 +258,6 @@ describe Game do
 
       game.move("6,8","0,-7")
       game.move("2,6","1,0")
-
       expect(game.movement("4,2","1,0")).to eql("You can't put your king in check!")
     end
 
@@ -441,8 +434,6 @@ describe Game do
 
       game.move("7,2","-1,0")
       game.move("5,1","1,0")
-
-      game.move("7,4", "-1,0")
       expect(game.movement("7,4", "-1,0")).to eql("Checkmate!")
     end
 # black rook
@@ -864,59 +855,4 @@ describe Game do
       expect(game.position_locator).to eql("[\"8,1\", \"8,2\", \"8,3\", \"8,4\", \"8,5\", \"8,6\", \"8,7\", \"8,8\", \"7,1\", \"7,2\", \"7,3\", \"7,4\", \"7,5\", \"7,6\", \"7,7\", \"7,8\"]\n[\"2,1\", \"2,2\", \"2,3\", \"2,4\", \"2,5\", \"2,6\", \"2,7\", \"2,8\", \"1,1\", \"1,2\", \"1,3\", \"1,4\", \"1,5\", \"1,6\", \"1,7\", \"1,8\"]")
     end
   end
-
-#game_simulation
-
-  describe "#movement" do
-    it "allows a game to be played" do
-      game = Game.new
-      game.movement("7,1","-2,0")
-    end
-  end
 end
-
-=begin
-puts game.board.display_board
-
-automate black
-game = Game.new
-game.move("7,1","-1,0")
-game.move(",", ",")
-game.move("7,2","-1,0")
-game.move(",",",")
-game.move("7,3","-1,0")
-game.move(",",",")
-game.move("7,4","-1,0")
-game.move(",",",")
-game.move("7,5","-1,0")
-game.move(",",",")
-game.move("7,6","-1,0")
-game.move(",",",")
-game.move("7,7","-1,0")
-game.move(",",",")
-game.move("7,8","-1,0")
-expect(game.move(",",",")).to eql("Successful move.")
-puts game.board.display_board
-
-automate white
-game = Game.new
-game.move(",", ",")
-game.move("2,1","1,0")
-game.move(",",",")
-game.move("2,2","1,0")
-game.move(",",",")
-game.move("2,3","1,0")
-game.move(",",",")
-game.move("2,4","1,0")
-game.move(",",",")
-game.move("2,5","1,0")
-game.move(",",",")
-game.move("2,6","1,0")
-game.move(",",",")
-game.move("2,7","1,0")
-game.move(",",",")
-game.move("2,8","1,0")
-expect(game.move(",",",")).to eql("Successful move.")
-puts game.board.display_board
-
-=end

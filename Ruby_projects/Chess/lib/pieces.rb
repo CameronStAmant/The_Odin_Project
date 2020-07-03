@@ -46,35 +46,3 @@ class Pieces
     @pawn_white_potential_diagonal_moves = ["1,-1","1,1"]
   end
 end
-
-=begin
-
-white_position_locator.each do |x|
-  piece_potential_moves = []
-  piece = @board.board[x]
-  case piece 
-  when "\u2656"
-    piece_potential_moves = @pieces.rook_potential_moves
-  when "\u2658"
-    piece_potential_moves = @pieces.knight_potential_moves
-  when "\u2657"
-    piece_potential_moves = @pieces.bishop_potential_moves
-  when "\u2655"
-    piece_potential_moves = @pieces.queen_potential_moves
-  when "\u2654"
-    piece_potential_moves = @pieces.king_potential_moves
-  when "\u2659"
-    piece_potential_moves = @pieces.pawn_white_potential_moves
-  end
-  piece_potential_moves.each do |y|
-    if move(x,y) == "Successful move."
-      @board.board = boar.dup
-      @turn = tur
-      @potential_white_moves << y
-    else
-      @turn = tur
-    end
-  end
-end
-
-=end
