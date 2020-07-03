@@ -663,5 +663,6 @@ class Game
   end
 end
 
+## While the below is commented out, the rspecs will pass much quicker. Uncomment the below out to play a game.
 # game = Game.new
 # game.ui
