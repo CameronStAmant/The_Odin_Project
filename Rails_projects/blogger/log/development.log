@@ -914,3 +914,2737 @@ Processing by ArticlesController#index as HTML
 Completed 200 OK in 9ms (Views: 7.7ms | ActiveRecord: 0.1ms | Allocations: 4240)
 
 
+Started GET "/articles" for 127.0.0.1 at 2020-07-11 16:27:02 -0600
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 7.6ms | Allocations: 4187)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/cameron/Documents/Programming/The_Odin_Project/Rails_projects/blogger/public/packs
+[Webpacker] Hash: 15d1bb7b54cf6326b9ba
+Version: webpack 4.43.0
+Time: 1518ms
+Built at: 07/11/2020 4:27:06 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-9afcbb5693aa87623e69.js    124 KiB  application  [emitted] [immutable]  application
+js/application-9afcbb5693aa87623e69.js.map    139 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-9afcbb5693aa87623e69.js js/application-9afcbb5693aa87623e69.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 749 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 3 hidden modules
+
+Completed 200 OK in 3562ms (Views: 3555.1ms | ActiveRecord: 0.7ms | Allocations: 16591)
+
+
+Started GET "/articles/1" for 127.0.0.1 at 2020-07-11 16:27:08 -0600
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (1.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:7:in `show'
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (Duration: 2.7ms | Allocations: 159)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 37ms (Views: 22.0ms | ActiveRecord: 1.0ms | Allocations: 4664)
+
+
+Started GET "/articles" for 127.0.0.1 at 2020-07-11 16:27:09 -0600
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 4.6ms | Allocations: 789)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 18ms (Views: 16.0ms | ActiveRecord: 0.3ms | Allocations: 4228)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2020-07-11 16:28:23 -0600
+  
+AbstractController::ActionNotFound (The action 'new' could not be found for ArticlesController):
+  
+actionpack (6.0.3.2) lib/abstract_controller/base.rb:131:in `process'
+actionview (6.0.3.2) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.0.3.2) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.3.2) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/cookies.rb:648:in `call'
+activerecord (6.0.3.2) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.3) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.3) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.3) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.3) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.2.2) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.2) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/articles/new" for 127.0.0.1 at 2020-07-11 16:30:39 -0600
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ArticlesController#new as HTML
+Completed 406 Not Acceptable in 4ms (ActiveRecord: 0.0ms | Allocations: 1914)
+
+
+  
+ActionController::MissingExactTemplate (ArticlesController#new is missing a template for request formats: text/html):
+  
+actionpack (6.0.3.2) lib/action_controller/metal/implicit_render.rb:45:in `default_render'
+actionpack (6.0.3.2) lib/action_controller/metal/basic_implicit_render.rb:6:in `block in send_action'
+actionpack (6.0.3.2) lib/action_controller/metal/basic_implicit_render.rb:6:in `tap'
+actionpack (6.0.3.2) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (6.0.3.2) lib/abstract_controller/base.rb:195:in `process_action'
+actionpack (6.0.3.2) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (6.0.3.2) lib/abstract_controller/callbacks.rb:42:in `block in process_action'
+activesupport (6.0.3.2) lib/active_support/callbacks.rb:135:in `run_callbacks'
+actionpack (6.0.3.2) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (6.0.3.2) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (6.0.3.2) lib/action_controller/metal/instrumentation.rb:33:in `block in process_action'
+activesupport (6.0.3.2) lib/active_support/notifications.rb:180:in `block in instrument'
+activesupport (6.0.3.2) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (6.0.3.2) lib/active_support/notifications.rb:180:in `instrument'
+actionpack (6.0.3.2) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (6.0.3.2) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+activerecord (6.0.3.2) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.0.3.2) lib/abstract_controller/base.rb:136:in `process'
+actionview (6.0.3.2) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.0.3.2) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.3.2) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/cookies.rb:648:in `call'
+activerecord (6.0.3.2) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.3) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.3) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.3) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.3) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.2.2) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.2) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/articles/new" for 127.0.0.1 at 2020-07-11 16:31:40 -0600
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/new.html.erb within layouts/application (Duration: 0.3ms | Allocations: 74)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 7.4ms | ActiveRecord: 0.0ms | Allocations: 4425)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2020-07-11 16:37:45 -0600
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/new.html.erb within layouts/application (Duration: 1.0ms | Allocations: 1122)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 2296)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <h1>Create a New Article</h1>
+    2: 
+    3: <%= form_for(@article) do |f| %>
+    4:   <ul>
+    5:   <% @article.errors.full_messages.each do |error| %>
+    6:     <li><%= error %></li>
+  
+app/views/articles/new.html.erb:3
+Started GET "/articles/new" for 127.0.0.1 at 2020-07-11 16:39:44 -0600
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/new.html.erb within layouts/application (Duration: 17.9ms | Allocations: 4119)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 37ms (Views: 26.9ms | ActiveRecord: 1.2ms | Allocations: 11215)
+
+
+Started POST "/articles" for 127.0.0.1 at 2020-07-11 16:39:55 -0600
+  
+AbstractController::ActionNotFound (The action 'create' could not be found for ArticlesController):
+  
+actionpack (6.0.3.2) lib/abstract_controller/base.rb:131:in `process'
+actionview (6.0.3.2) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.0.3.2) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.3.2) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/cookies.rb:648:in `call'
+activerecord (6.0.3.2) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.3) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.3) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.3) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.3) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.2.2) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.2) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started POST "/articles" for 127.0.0.1 at 2020-07-11 16:40:21 -0600
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ArticlesController#create as HTML
+  Parameters: {"authenticity_token"=>"K2jAKMXxueY0OjTAnaEgyUClzrAQw0qvIAoMyCdZlOMbmwouRjZ4ZBMeSKwrA3/tqU6qfibnXYEf0sBmcZtfsw==", "article"=>{"title"=>"title 8", "body"=>"body 8"}, "commit"=>"Create Article"}
+No template found for ArticlesController#create, rendering head :no_content
+Completed 204 No Content in 3ms (ActiveRecord: 0.0ms | Allocations: 1668)
+
+
+Started POST "/articles" for 127.0.0.1 at 2020-07-11 16:40:24 -0600
+Processing by ArticlesController#create as HTML
+  Parameters: {"authenticity_token"=>"K2jAKMXxueY0OjTAnaEgyUClzrAQw0qvIAoMyCdZlOMbmwouRjZ4ZBMeSKwrA3/tqU6qfibnXYEf0sBmcZtfsw==", "article"=>{"title"=>"title 8", "body"=>"body 8"}, "commit"=>"Create Article"}
+No template found for ArticlesController#create, rendering head :no_content
+Completed 204 No Content in 4ms (ActiveRecord: 0.0ms | Allocations: 379)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2020-07-11 16:40:27 -0600
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/new.html.erb within layouts/application (Duration: 4.6ms | Allocations: 749)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 55ms (Views: 14.4ms | ActiveRecord: 4.1ms | Allocations: 7545)
+
+
+Started POST "/articles" for 127.0.0.1 at 2020-07-11 16:40:28 -0600
+Processing by ArticlesController#create as HTML
+  Parameters: {"authenticity_token"=>"vehKB+zi2LWe4xqrtdPocdcpeky84eEx0qDCtLt0lhSNG4ABbyUZN7nHZscDcbdVPsIegorF9h/teA4a7bZdRA==", "article"=>{"title"=>"title 8", "body"=>"body 8"}, "commit"=>"Create Article"}
+No template found for ArticlesController#create, rendering head :no_content
+Completed 204 No Content in 2ms (ActiveRecord: 0.0ms | Allocations: 387)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2020-07-11 16:40:37 -0600
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/new.html.erb within layouts/application (Duration: 9.8ms | Allocations: 685)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 31ms (Views: 27.6ms | ActiveRecord: 0.0ms | Allocations: 4103)
+
+
+Started GET "/articles/" for 127.0.0.1 at 2020-07-11 16:40:40 -0600
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 969)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 7.9ms | ActiveRecord: 0.4ms | Allocations: 4576)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2020-07-11 16:40:41 -0600
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/new.html.erb within layouts/application (Duration: 1.8ms | Allocations: 688)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 10.0ms | ActiveRecord: 0.0ms | Allocations: 4109)
+
+
+Started POST "/articles" for 127.0.0.1 at 2020-07-11 16:40:43 -0600
+Processing by ArticlesController#create as HTML
+  Parameters: {"authenticity_token"=>"ulBRYHh4ivBsPvCFGzeRmm2+o8zPiocr8q74CAxGPiPypdhAXnWGprH1IDk7amYstNeBDbKqB+qPunoDvSn/LA==", "article"=>{"title"=>"8", "body"=>"8"}, "commit"=>"Create Article"}
+No template found for ArticlesController#create, rendering head :no_content
+Completed 204 No Content in 2ms (ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2020-07-11 16:40:51 -0600
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/new.html.erb within layouts/application (Duration: 2.1ms | Allocations: 750)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 8.7ms | ActiveRecord: 0.6ms | Allocations: 7461)
+
+
+Started POST "/articles" for 127.0.0.1 at 2020-07-11 16:40:54 -0600
+  
+AbstractController::ActionNotFound (The action 'create' could not be found for ArticlesController):
+  
+actionpack (6.0.3.2) lib/abstract_controller/base.rb:131:in `process'
+actionview (6.0.3.2) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.0.3.2) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.3.2) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/cookies.rb:648:in `call'
+activerecord (6.0.3.2) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.3) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.3) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.3) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.3) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.2.2) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.2) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/articles/" for 127.0.0.1 at 2020-07-11 16:40:56 -0600
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 3.4ms | Allocations: 808)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 11.4ms | ActiveRecord: 0.5ms | Allocations: 4276)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2020-07-11 16:41:00 -0600
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/new.html.erb within layouts/application (Duration: 2.1ms | Allocations: 749)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 7.7ms | ActiveRecord: 1.5ms | Allocations: 7532)
+
+
+Started POST "/articles" for 127.0.0.1 at 2020-07-11 16:41:04 -0600
+Processing by ArticlesController#create as HTML
+  Parameters: {"authenticity_token"=>"Sl6w8M036DFH5ZFS5KZiJzOKzG9v+vOW9ahMxpT4JNMCqznQ6zrkZ5ouQe7E+5WR6uPurhLac1eIvM7NJZfl3A==", "article"=>{"title"=>"34", "body"=>"34"}, "commit"=>"Create Article"}
+No template found for ArticlesController#create, rendering head :no_content
+Completed 204 No Content in 2ms (ActiveRecord: 0.0ms | Allocations: 409)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2020-07-11 16:41:55 -0600
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/new.html.erb within layouts/application (Duration: 2.3ms | Allocations: 749)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 8.1ms | ActiveRecord: 0.9ms | Allocations: 7451)
+
+
+Started POST "/articles" for 127.0.0.1 at 2020-07-11 16:42:01 -0600
+Processing by ArticlesController#create as HTML
+  Parameters: {"authenticity_token"=>"Or+i4OVK97ujDTdbn6kjaAmOVLY9vYhATBDkWLW+zI4KTGjmZo02OYQpSzcpC3xM4GUweAuZn25zyCj243wH3g==", "article"=>{"title"=>"title456", "body"=>" body378"}, "commit"=>"Create Article"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 638)
+
+
+  
+RuntimeError ():
+  
+app/controllers/articles_controller.rb:15:in `create'
+Started POST "/articles" for 127.0.0.1 at 2020-07-11 16:42:21 -0600
+Processing by ArticlesController#create as HTML
+  Parameters: {"authenticity_token"=>"Or+i4OVK97ujDTdbn6kjaAmOVLY9vYhATBDkWLW+zI4KTGjmZo02OYQpSzcpC3xM4GUweAuZn25zyCj243wH3g==", "article"=>{"title"=>"title456", "body"=>" body378"}, "commit"=>"Create Article"}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 637)
+
+
+  
+RuntimeError ():
+  
+app/controllers/articles_controller.rb:15:in `create'
+Started GET "/articles/new" for 127.0.0.1 at 2020-07-11 17:51:32 -0600
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/new.html.erb within layouts/application (Duration: 3.9ms | Allocations: 749)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 10.7ms | ActiveRecord: 0.0ms | Allocations: 7178)
+
+
+Started POST "/articles" for 127.0.0.1 at 2020-07-11 17:51:33 -0600
+Processing by ArticlesController#create as HTML
+  Parameters: {"authenticity_token"=>"5lExppP3pDYIg+AszWah/9JA+NTcIEGQv18NCEnHgnrWovugEDBltC+nnEB7xP7bO6ucGuoEVr6Ah8GmHwVJKg==", "article"=>{"title"=>"title456", "body"=>" body378"}, "commit"=>"Create Article"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/articles_controller.rb:17:in `create'
+  [1m[36mArticle Create (0.6ms)[0m  [1m[32mINSERT INTO "articles" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "title456"], ["created_at", "2020-07-11 23:51:33.807326"], ["updated_at", "2020-07-11 23:51:33.807326"]]
+  ↳ app/controllers/articles_controller.rb:17:in `create'
+  [1m[35m (5.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/articles_controller.rb:17:in `create'
+Redirected to http://localhost:3000/articles/5
+Completed 302 Found in 16ms (ActiveRecord: 6.6ms | Allocations: 3844)
+
+
+Started GET "/articles/5" for 127.0.0.1 at 2020-07-11 17:51:33 -0600
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:7:in `show'
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (Duration: 0.6ms | Allocations: 153)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 6.1ms | ActiveRecord: 0.2ms | Allocations: 4374)
+
+
+Started GET "/articles/5" for 127.0.0.1 at 2020-07-11 17:51:36 -0600
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:7:in `show'
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (Duration: 0.2ms | Allocations: 39)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 7ms (Views: 4.9ms | ActiveRecord: 0.2ms | Allocations: 3985)
+
+
+Started GET "/articles/5" for 127.0.0.1 at 2020-07-11 17:52:55 -0600
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:7:in `show'
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (Duration: 0.4ms | Allocations: 47)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 29ms (Views: 9.1ms | ActiveRecord: 1.4ms | Allocations: 7454)
+
+
+Started GET "/articles/5" for 127.0.0.1 at 2020-07-11 17:52:56 -0600
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:7:in `show'
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (Duration: 0.2ms | Allocations: 39)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 5.3ms | ActiveRecord: 0.2ms | Allocations: 3976)
+
+
+Started GET "/articles/5" for 127.0.0.1 at 2020-07-11 17:53:38 -0600
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:7:in `show'
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (Duration: 0.5ms | Allocations: 39)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 16.1ms | ActiveRecord: 0.3ms | Allocations: 3982)
+
+
+Started GET "/articles" for 127.0.0.1 at 2020-07-11 17:53:38 -0600
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 3.8ms | Allocations: 834)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 10.7ms | ActiveRecord: 0.3ms | Allocations: 4264)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2020-07-11 17:53:39 -0600
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/new.html.erb within layouts/application (Duration: 7.5ms | Allocations: 737)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 35ms (Views: 31.4ms | ActiveRecord: 0.0ms | Allocations: 4171)
+
+
+Started POST "/articles" for 127.0.0.1 at 2020-07-11 17:53:44 -0600
+Processing by ArticlesController#create as HTML
+  Parameters: {"authenticity_token"=>"ypwFcQUZOUk56/JWTk7j455UnZw6alPudJMuUIsfEJyCaYxRIxQ1H+QgIupuExRVRz2/XUdK0y8Jh6xbOnDRkw==", "article"=>{"title"=>"3546", "body"=>"324667"}, "commit"=>"Create Article"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/articles_controller.rb:18:in `create'
+  [1m[36mArticle Create (0.5ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "3546"], ["body", "324667"], ["created_at", "2020-07-11 23:53:44.171186"], ["updated_at", "2020-07-11 23:53:44.171186"]]
+  ↳ app/controllers/articles_controller.rb:18:in `create'
+  [1m[35m (12.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/articles_controller.rb:18:in `create'
+Redirected to http://localhost:3000/articles/6
+Completed 302 Found in 22ms (ActiveRecord: 12.8ms | Allocations: 2986)
+
+
+Started GET "/articles/6" for 127.0.0.1 at 2020-07-11 17:53:44 -0600
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:7:in `show'
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (Duration: 0.4ms | Allocations: 41)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 5.9ms | ActiveRecord: 0.2ms | Allocations: 3987)
+
+
+Started GET "/articles" for 127.0.0.1 at 2020-07-11 17:53:47 -0600
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 4.9ms | Allocations: 851)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 24ms (Views: 21.6ms | ActiveRecord: 0.4ms | Allocations: 4273)
+
+
+Started GET "/articles/5" for 127.0.0.1 at 2020-07-11 17:53:49 -0600
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mArticle Load (0.8ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:7:in `show'
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (Duration: 0.6ms | Allocations: 39)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 30ms (Views: 16.0ms | ActiveRecord: 0.8ms | Allocations: 3984)
+
+
+Started GET "/articles" for 127.0.0.1 at 2020-07-11 17:53:52 -0600
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 851)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 7ms (Views: 6.5ms | ActiveRecord: 0.1ms | Allocations: 4269)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2020-07-11 17:53:53 -0600
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/new.html.erb within layouts/application (Duration: 5.7ms | Allocations: 685)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 26ms (Views: 22.6ms | ActiveRecord: 0.0ms | Allocations: 4117)
+
+
+Started POST "/articles" for 127.0.0.1 at 2020-07-11 17:53:55 -0600
+Processing by ArticlesController#create as HTML
+  Parameters: {"authenticity_token"=>"Ws+UnWyP3HKalKX5jlXkH2jOtDxORcjMGfejuoBlcKASOh29SoLQJEdfdUWuCBOpsaeW/TNlSA1k4yGxMQqxrw==", "article"=>{"title"=>"afasdf", "body"=>"safdsafdas"}, "commit"=>"Create Article"}
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/articles_controller.rb:18:in `create'
+  [1m[36mArticle Create (0.7ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "afasdf"], ["body", "safdsafdas"], ["created_at", "2020-07-11 23:53:55.317459"], ["updated_at", "2020-07-11 23:53:55.317459"]]
+  ↳ app/controllers/articles_controller.rb:18:in `create'
+  [1m[35m (5.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/articles_controller.rb:18:in `create'
+Redirected to http://localhost:3000/articles/7
+Completed 302 Found in 32ms (ActiveRecord: 6.8ms | Allocations: 3702)
+
+
+Started GET "/articles/7" for 127.0.0.1 at 2020-07-11 17:53:55 -0600
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:7:in `show'
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (Duration: 0.2ms | Allocations: 41)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 6ms (Views: 4.1ms | ActiveRecord: 0.1ms | Allocations: 3993)
+
+
+Started GET "/articles/7" for 127.0.0.1 at 2020-07-11 17:57:31 -0600
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:7:in `show'
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 49)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 4.9ms | ActiveRecord: 0.9ms | Allocations: 7482)
+
+
+Started GET "/articles" for 127.0.0.1 at 2020-07-11 17:57:33 -0600
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 7.4ms | Allocations: 910)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 18ms (Views: 16.0ms | ActiveRecord: 0.5ms | Allocations: 4334)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2020-07-11 17:57:34 -0600
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/new.html.erb within layouts/application (Duration: 4.9ms | Allocations: 737)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 23ms (Views: 19.8ms | ActiveRecord: 0.0ms | Allocations: 4169)
+
+
+Started POST "/articles" for 127.0.0.1 at 2020-07-11 17:57:36 -0600
+Processing by ArticlesController#create as HTML
+  Parameters: {"authenticity_token"=>"8QzvCJ+w8O874IEEMTD6OZyKKO18QYIHu2Q5MwJYf4q5+WYoub38ueYrUbgRbQ2PReMKLAFhAsbGcLs4sze+hQ==", "article"=>{"title"=>"asfasdf", "body"=>"asfasdf"}, "commit"=>"Create Article"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 720)
+
+
+  
+ActiveModel::ForbiddenAttributesError (ActiveModel::ForbiddenAttributesError):
+  
+app/controllers/articles_controller.rb:15:in `create'
+DEPRECATION WARNING: Using `bin/rake routes` is deprecated and will be removed in Rails 6.1. Use `bin/rails routes` instead.
+ (called from load at /home/cameron/.rbenv/versions/2.7.1/bin/rake:23)
+Started POST "/articles" for 127.0.0.1 at 2020-07-11 18:11:17 -0600
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ArticlesController#create as HTML
+  Parameters: {"authenticity_token"=>"8QzvCJ+w8O874IEEMTD6OZyKKO18QYIHu2Q5MwJYf4q5+WYoub38ueYrUbgRbQ2PReMKLAFhAsbGcLs4sze+hQ==", "article"=>{"title"=>"asfasdf", "body"=>"asfasdf"}, "commit"=>"Create Article"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/articles_controller.rb:17:in `create'
+  [1m[36mArticle Create (0.2ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "asfasdf"], ["body", "asfasdf"], ["created_at", "2020-07-12 00:11:17.761533"], ["updated_at", "2020-07-12 00:11:17.761533"]]
+  ↳ app/controllers/articles_controller.rb:17:in `create'
+  [1m[35m (4.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/articles_controller.rb:17:in `create'
+Redirected to http://localhost:3000/articles/8
+Completed 302 Found in 15ms (ActiveRecord: 4.3ms | Allocations: 6676)
+
+
+Started GET "/articles/8" for 127.0.0.1 at 2020-07-11 18:11:17 -0600
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:8:in `show'
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (Duration: 0.9ms | Allocations: 1032)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.2ms | Allocations: 2879)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h1><%= @article.title %></h1>
+<p><%= @article.body %></p>
+<%= link_to "<< Back to Articles LIst", articles_path %>
+<% link_to "delete", article_path(@article), method :delete %>
+):
+1:    <h1><%= @article.title %></h1>
+2:    <p><%= @article.body %></p>
+3:    <%= link_to "<< Back to Articles LIst", articles_path %>
+4:    <% link_to "delete", article_path(@article), method :delete %>
+  
+app/views/articles/show.html.erb:4: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/views/articles/show.html.erb:4: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/views/articles/show.html.erb:4: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/views/articles/show.html.erb:4: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/views/articles/show.html.erb:4: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/views/articles/show.html.erb:4: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+Started GET "/articles" for 127.0.0.1 at 2020-07-11 18:11:22 -0600
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1097)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 10.0ms | ActiveRecord: 0.3ms | Allocations: 4845)
+
+
+Started GET "/articles/2" for 127.0.0.1 at 2020-07-11 18:11:23 -0600
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:8:in `show'
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (Duration: 1.5ms | Allocations: 1021)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.2ms | Allocations: 1992)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h1><%= @article.title %></h1>
+<p><%= @article.body %></p>
+<%= link_to "<< Back to Articles LIst", articles_path %>
+<% link_to "delete", article_path(@article), method :delete %>
+):
+1:    <h1><%= @article.title %></h1>
+2:    <p><%= @article.body %></p>
+3:    <%= link_to "<< Back to Articles LIst", articles_path %>
+4:    <% link_to "delete", article_path(@article), method :delete %>
+  
+app/views/articles/show.html.erb:4: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/views/articles/show.html.erb:4: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/views/articles/show.html.erb:4: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/views/articles/show.html.erb:4: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/views/articles/show.html.erb:4: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/views/articles/show.html.erb:4: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+Started GET "/articles" for 127.0.0.1 at 2020-07-11 18:11:29 -0600
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 930)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 11.5ms | ActiveRecord: 0.1ms | Allocations: 4361)
+
+
+Started GET "/articles" for 127.0.0.1 at 2020-07-11 18:11:36 -0600
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (1.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 12.6ms | Allocations: 1083)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 42ms (Views: 36.8ms | ActiveRecord: 1.0ms | Allocations: 5416)
+
+
+Started GET "/articles/4" for 127.0.0.1 at 2020-07-11 18:11:37 -0600
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mArticle Load (0.7ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:8:in `show'
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1036)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.7ms | Allocations: 2141)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h1><%= @article.title %></h1>
+<p><%= @article.body %></p>
+<%= link_to "<< Back to Articles LIst", articles_path %>
+<%= link_to "delete", article_path(@article), method :delete %>
+):
+1:    <h1><%= @article.title %></h1>
+2:    <p><%= @article.body %></p>
+3:    <%= link_to "<< Back to Articles LIst", articles_path %>
+4:    <%= link_to "delete", article_path(@article), method :delete %>
+  
+app/views/articles/show.html.erb:4: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/views/articles/show.html.erb:4: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/views/articles/show.html.erb:4: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/views/articles/show.html.erb:4: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/views/articles/show.html.erb:4: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/views/articles/show.html.erb:4: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+Started GET "/articles" for 127.0.0.1 at 2020-07-11 18:11:41 -0600
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 930)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 8.0ms | ActiveRecord: 0.2ms | Allocations: 4357)
+
+
+Started GET "/articles" for 127.0.0.1 at 2020-07-11 18:13:25 -0600
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 11.7ms | Allocations: 1080)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 47ms (Views: 40.5ms | ActiveRecord: 0.5ms | Allocations: 5426)
+
+
+Started GET "/articles/4" for 127.0.0.1 at 2020-07-11 18:13:26 -0600
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:8:in `show'
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (Duration: 1.6ms | Allocations: 161)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 18ms (Views: 13.1ms | ActiveRecord: 0.3ms | Allocations: 4239)
+
+
+Started GET "/articles" for 127.0.0.1 at 2020-07-11 18:13:35 -0600
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1080)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 13.9ms | ActiveRecord: 0.2ms | Allocations: 5402)
+
+
+Started GET "/articles/3" for 127.0.0.1 at 2020-07-11 18:13:36 -0600
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:8:in `show'
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (Duration: 1.1ms | Allocations: 1036)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.1ms | Allocations: 2150)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h1><%= @article.title %></h1>
+<p><%= @article.body %></p>
+<%= link_to "<< Back to Articles List", articles_path %>
+<%= link_to "delete", article_path(@article), method :delete %>
+):
+1:    <h1><%= @article.title %></h1>
+2:    <p><%= @article.body %></p>
+3:    <%= link_to "<< Back to Articles List", articles_path %>
+4:    <%= link_to "delete", article_path(@article), method :delete %>
+  
+app/views/articles/show.html.erb:4: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/views/articles/show.html.erb:4: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/views/articles/show.html.erb:4: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/views/articles/show.html.erb:4: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/views/articles/show.html.erb:4: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/views/articles/show.html.erb:4: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+Started GET "/articles" for 127.0.0.1 at 2020-07-11 18:13:46 -0600
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 1.6ms | Allocations: 930)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 7ms (Views: 6.3ms | ActiveRecord: 0.1ms | Allocations: 4367)
+
+
+Started GET "/articles" for 127.0.0.1 at 2020-07-11 18:14:31 -0600
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.8ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 4.8ms | Allocations: 1080)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 13.6ms | ActiveRecord: 0.8ms | Allocations: 5417)
+
+
+Started GET "/articles/4" for 127.0.0.1 at 2020-07-11 18:14:32 -0600
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:8:in `show'
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (Duration: 1.4ms | Allocations: 195)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 10.1ms | ActiveRecord: 0.5ms | Allocations: 4275)
+
+
+Started GET "/articles" for 127.0.0.1 at 2020-07-11 18:14:41 -0600
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 4.1ms | Allocations: 1080)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 14.7ms | ActiveRecord: 0.2ms | Allocations: 5424)
+
+
+Started GET "/articles" for 127.0.0.1 at 2020-07-11 18:14:42 -0600
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.7ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 8.2ms | Allocations: 931)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 27ms (Views: 22.7ms | ActiveRecord: 0.7ms | Allocations: 4364)
+
+
+Started GET "/articles/6" for 127.0.0.1 at 2020-07-11 18:14:43 -0600
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:8:in `show'
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (Duration: 1.6ms | Allocations: 209)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 12.2ms | ActiveRecord: 0.2ms | Allocations: 4291)
+
+
+Started DELETE "/articles/6" for 127.0.0.1 at 2020-07-11 18:14:59 -0600
+  
+AbstractController::ActionNotFound (The action 'destroy' could not be found for ArticlesController):
+  
+actionpack (6.0.3.2) lib/abstract_controller/base.rb:131:in `process'
+actionview (6.0.3.2) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.0.3.2) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.3.2) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/cookies.rb:648:in `call'
+activerecord (6.0.3.2) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.3) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.3) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.3) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.3) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.2.2) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.2) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/articles/6" for 127.0.0.1 at 2020-07-11 19:12:20 -0600
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:8:in `show'
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (Duration: 0.7ms | Allocations: 89)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 7.4ms | ActiveRecord: 0.2ms | Allocations: 7213)
+
+
+Started GET "/articles" for 127.0.0.1 at 2020-07-11 19:12:21 -0600
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 943)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 9.1ms | ActiveRecord: 0.3ms | Allocations: 4381)
+
+
+Started GET "/articles/1" for 127.0.0.1 at 2020-07-11 19:12:22 -0600
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:8:in `show'
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (Duration: 5.9ms | Allocations: 79)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 23ms (Views: 19.4ms | ActiveRecord: 0.2ms | Allocations: 4031)
+
+
+Started DELETE "/articles/1" for 127.0.0.1 at 2020-07-11 19:12:23 -0600
+Processing by ArticlesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"qgbwAlnPAqpwDF0/B5aSEqGzumQimU+UQWn85KnljzSa9ToE2gjDKFcoIVOxNM02SFjeqhS9WLp+sTBK/ydEZA==", "id"=>"1"}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:22:in `destroy'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/articles_controller.rb:23:in `destroy'
+  [1m[36mArticle Destroy (0.5ms)[0m  [1m[31mDELETE FROM "articles" WHERE "articles"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/articles_controller.rb:23:in `destroy'
+  [1m[35m (10.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/articles_controller.rb:23:in `destroy'
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ app/controllers/articles_controller.rb:24:in `destroy'
+Redirected to 
+  [1m[36mCACHE Article Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" LIMIT ?[0m  [["LIMIT", 11]]
+Completed 500 Internal Server Error in 33ms (ActiveRecord: 11.5ms | Allocations: 8808)
+
+
+  [1m[36mCACHE Article Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" LIMIT ?[0m  [["LIMIT", 11]]
+  
+NoMethodError (undefined method `to_model' for #<Article::ActiveRecord_Relation:0x00007f7c682b6100>
+Did you mean?  to_xml):
+  
+app/controllers/articles_controller.rb:24:in `destroy'
+Started GET "/articles/1" for 127.0.0.1 at 2020-07-11 19:12:54 -0600
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:8:in `show'
+Completed 404 Not Found in 6ms (ActiveRecord: 0.9ms | Allocations: 2113)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Article with 'id'=1):
+  
+app/controllers/articles_controller.rb:8:in `show'
+Started GET "/articles" for 127.0.0.1 at 2020-07-11 19:12:56 -0600
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 9.3ms | Allocations: 3230)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 15.8ms | ActiveRecord: 0.2ms | Allocations: 6820)
+
+
+Started GET "/articles/3" for 127.0.0.1 at 2020-07-11 19:12:57 -0600
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:8:in `show'
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (Duration: 0.4ms | Allocations: 81)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 5.9ms | ActiveRecord: 0.1ms | Allocations: 4021)
+
+
+Started DELETE "/articles/3" for 127.0.0.1 at 2020-07-11 19:12:58 -0600
+Processing by ArticlesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Uv5PRSAIb19+2TTtFg+0TllyqOqHhfLzs3JYX4J0X0hiDYVDo8+u3Vn9SIGgretqsJnMJLGh5d2MqpTx1LaUGA==", "id"=>"3"}
+  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:22:in `destroy'
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/articles_controller.rb:23:in `destroy'
+  [1m[36mArticle Destroy (1.3ms)[0m  [1m[31mDELETE FROM "articles" WHERE "articles"."id" = ?[0m  [["id", 3]]
+  ↳ app/controllers/articles_controller.rb:23:in `destroy'
+  [1m[35m (11.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/articles_controller.rb:23:in `destroy'
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ app/controllers/articles_controller.rb:24:in `destroy'
+Redirected to 
+  [1m[36mCACHE Article Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" LIMIT ?[0m  [["LIMIT", 11]]
+Completed 500 Internal Server Error in 59ms (ActiveRecord: 14.1ms | Allocations: 8621)
+
+
+  [1m[36mCACHE Article Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" LIMIT ?[0m  [["LIMIT", 11]]
+  
+NoMethodError (undefined method `to_model' for #<Article::ActiveRecord_Relation:0x00007f7cac00b100>
+Did you mean?  to_xml):
+  
+app/controllers/articles_controller.rb:24:in `destroy'
+Started GET "/articles" for 127.0.0.1 at 2020-07-11 19:13:01 -0600
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 3.5ms | Allocations: 850)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 12.3ms | ActiveRecord: 0.3ms | Allocations: 4283)
+
+
+Started GET "/articles" for 127.0.0.1 at 2020-07-11 19:29:55 -0600
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 6.4ms | Allocations: 3489)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 13.3ms | ActiveRecord: 0.2ms | Allocations: 7342)
+
+
+Started GET "/articles/2" for 127.0.0.1 at 2020-07-11 19:29:56 -0600
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:8:in `show'
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (Duration: 0.7ms | Allocations: 81)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 12.3ms | ActiveRecord: 0.4ms | Allocations: 4154)
+
+
+Started DELETE "/articles/2" for 127.0.0.1 at 2020-07-11 19:29:57 -0600
+Processing by ArticlesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Noa5UQmFQxwZuUigloeWANUYD2doheHRN/s1aX34KmkGdXNXikKCnj6dNMwgJckkPPNrqV6h9v8II/nHKzrhOQ==", "id"=>"2"}
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:22:in `destroy'
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/articles_controller.rb:23:in `destroy'
+  [1m[36mArticle Destroy (0.6ms)[0m  [1m[31mDELETE FROM "articles" WHERE "articles"."id" = ?[0m  [["id", 2]]
+  ↳ app/controllers/articles_controller.rb:23:in `destroy'
+  [1m[35m (10.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/articles_controller.rb:23:in `destroy'
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ app/controllers/articles_controller.rb:24:in `destroy'
+Redirected to 
+  [1m[36mCACHE Article Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" LIMIT ?[0m  [["LIMIT", 11]]
+Completed 500 Internal Server Error in 41ms (ActiveRecord: 12.0ms | Allocations: 8449)
+
+
+  [1m[36mCACHE Article Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" LIMIT ?[0m  [["LIMIT", 11]]
+  
+NoMethodError (undefined method `to_model' for #<Article::ActiveRecord_Relation:0x00007f7ca4646ec8>
+Did you mean?  to_xml):
+  
+app/controllers/articles_controller.rb:24:in `destroy'
+Started GET "/articles/2" for 127.0.0.1 at 2020-07-11 19:30:17 -0600
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:8:in `show'
+Completed 404 Not Found in 13ms (ActiveRecord: 0.5ms | Allocations: 1100)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Article with 'id'=2):
+  
+app/controllers/articles_controller.rb:8:in `show'
+Started GET "/articles" for 127.0.0.1 at 2020-07-11 19:30:18 -0600
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 8.0ms | Allocations: 813)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 28ms (Views: 24.2ms | ActiveRecord: 0.6ms | Allocations: 4236)
+
+
+Started GET "/articles" for 127.0.0.1 at 2020-07-11 19:30:20 -0600
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 3.2ms | Allocations: 814)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 15.0ms | ActiveRecord: 0.3ms | Allocations: 4238)
+
+
+Started GET "/articles/4" for 127.0.0.1 at 2020-07-11 19:30:21 -0600
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:8:in `show'
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (Duration: 0.7ms | Allocations: 79)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 12.5ms | ActiveRecord: 0.2ms | Allocations: 4033)
+
+
+Started GET "/articles/4" for 127.0.0.1 at 2020-07-11 19:31:10 -0600
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:8:in `show'
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (Duration: 1.8ms | Allocations: 89)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 23ms (Views: 9.1ms | ActiveRecord: 1.0ms | Allocations: 7514)
+
+
+Started DELETE "/articles/4" for 127.0.0.1 at 2020-07-11 19:31:11 -0600
+Processing by ArticlesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Xh24KJojlCYoRO0FJFPpdKdYydUw4nz/yZGQj0E0rXVu7nIuGeRVpA9gkWmS8bZQTrOtGwbGa9H2SVwhF/ZmJQ==", "id"=>"4"}
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:22:in `destroy'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/articles_controller.rb:23:in `destroy'
+  [1m[36mArticle Destroy (0.2ms)[0m  [1m[31mDELETE FROM "articles" WHERE "articles"."id" = ?[0m  [["id", 4]]
+  ↳ app/controllers/articles_controller.rb:23:in `destroy'
+  [1m[35m (6.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/articles_controller.rb:23:in `destroy'
+No template found for ArticlesController#destroy, rendering head :no_content
+Completed 204 No Content in 17ms (ActiveRecord: 6.6ms | Allocations: 5120)
+
+
+Started DELETE "/articles/4" for 127.0.0.1 at 2020-07-11 19:31:14 -0600
+Processing by ArticlesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Xh24KJojlCYoRO0FJFPpdKdYydUw4nz/yZGQj0E0rXVu7nIuGeRVpA9gkWmS8bZQTrOtGwbGa9H2SVwhF/ZmJQ==", "id"=>"4"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:22:in `destroy'
+Completed 404 Not Found in 3ms (ActiveRecord: 0.2ms | Allocations: 1144)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Article with 'id'=4):
+  
+app/controllers/articles_controller.rb:22:in `destroy'
+Started GET "/articles" for 127.0.0.1 at 2020-07-11 19:31:20 -0600
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 794)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 7.1ms | ActiveRecord: 0.2ms | Allocations: 4227)
+
+
+Started GET "/articles" for 127.0.0.1 at 2020-07-11 19:31:20 -0600
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 777)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 10.6ms | ActiveRecord: 0.2ms | Allocations: 4197)
+
+
+Started GET "/articles/5" for 127.0.0.1 at 2020-07-11 19:31:21 -0600
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:8:in `show'
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (Duration: 0.8ms | Allocations: 77)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 12.6ms | ActiveRecord: 0.2ms | Allocations: 4019)
+
+
+Started DELETE "/articles/5" for 127.0.0.1 at 2020-07-11 19:31:22 -0600
+Processing by ArticlesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"9cycY9jUQp56ePQ6EQFEPgsZSyTqODSEScMbgLG82OvFP1ZlWxODHF1ciFanoxsa4vIv6twcI6p2G9cu534Tuw==", "id"=>"5"}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:22:in `destroy'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/articles_controller.rb:23:in `destroy'
+  [1m[36mArticle Destroy (0.6ms)[0m  [1m[31mDELETE FROM "articles" WHERE "articles"."id" = ?[0m  [["id", 5]]
+  ↳ app/controllers/articles_controller.rb:23:in `destroy'
+  [1m[35m (12.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/articles_controller.rb:23:in `destroy'
+No template found for ArticlesController#destroy, rendering head :no_content
+Completed 204 No Content in 26ms (ActiveRecord: 13.3ms | Allocations: 3832)
+
+
+Started GET "/articles" for 127.0.0.1 at 2020-07-11 19:31:23 -0600
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 3.4ms | Allocations: 740)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 17.3ms | ActiveRecord: 0.3ms | Allocations: 4172)
+
+
+Started GET "/articles" for 127.0.0.1 at 2020-07-11 19:31:24 -0600
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 2.2ms | Allocations: 740)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 11.6ms | ActiveRecord: 0.2ms | Allocations: 4167)
+
+
+Started GET "/articles" for 127.0.0.1 at 2020-07-11 19:31:40 -0600
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 9.5ms | Allocations: 3699)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 17.4ms | ActiveRecord: 1.1ms | Allocations: 7550)
+
+
+Started GET "/articles/6" for 127.0.0.1 at 2020-07-11 19:31:41 -0600
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:8:in `show'
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (Duration: 0.4ms | Allocations: 81)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 8.1ms | ActiveRecord: 0.3ms | Allocations: 4146)
+
+
+Started DELETE "/articles/6" for 127.0.0.1 at 2020-07-11 19:31:42 -0600
+Processing by ArticlesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"KVe13UwZfkZVrf50SX8MTqtCvRdOo6se4RsWd8xa5aAZpH/bz96/xHKJghj/3VNqQqnZ2XiHvDDew9rZmpgu8A==", "id"=>"6"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:22:in `destroy'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/articles_controller.rb:23:in `destroy'
+  [1m[36mArticle Destroy (0.4ms)[0m  [1m[31mDELETE FROM "articles" WHERE "articles"."id" = ?[0m  [["id", 6]]
+  ↳ app/controllers/articles_controller.rb:23:in `destroy'
+  [1m[35m (8.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/articles_controller.rb:23:in `destroy'
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ app/controllers/articles_controller.rb:24:in `destroy'
+Redirected to 
+  [1m[36mCACHE Article Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" LIMIT ?[0m  [["LIMIT", 11]]
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 9.1ms | Allocations: 7977)
+
+
+  [1m[36mCACHE Article Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" LIMIT ?[0m  [["LIMIT", 11]]
+  
+NoMethodError (undefined method `to_model' for #<Article::ActiveRecord_Relation:0x00007f7c580e1cb8>
+Did you mean?  to_xml):
+  
+app/controllers/articles_controller.rb:24:in `destroy'
+Started GET "/articles" for 127.0.0.1 at 2020-07-11 19:31:45 -0600
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 4.0ms | Allocations: 702)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 13.6ms | ActiveRecord: 0.4ms | Allocations: 4137)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2020-07-11 19:31:47 -0600
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/new.html.erb within layouts/application (Duration: 2.9ms | Allocations: 984)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 10.8ms | ActiveRecord: 0.0ms | Allocations: 4545)
+
+
+Started POST "/articles" for 127.0.0.1 at 2020-07-11 19:31:50 -0600
+Processing by ArticlesController#create as HTML
+  Parameters: {"authenticity_token"=>"KK+mRLGlMU/B1IBgwK51CzZSYL9dCsoi/efPILFEEsNgWi9kl6g9GRwfUNzg84K97ztCfiAqSuOA800rACvTzA==", "article"=>{"title"=>"asfasdf", "body"=>"asfsdafdasfdasfd"}, "commit"=>"Create Article"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/articles_controller.rb:17:in `create'
+  [1m[36mArticle Create (0.4ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "asfasdf"], ["body", "asfsdafdasfdasfd"], ["created_at", "2020-07-12 01:31:50.664674"], ["updated_at", "2020-07-12 01:31:50.664674"]]
+  ↳ app/controllers/articles_controller.rb:17:in `create'
+  [1m[35m (6.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/articles_controller.rb:17:in `create'
+Redirected to http://localhost:3000/articles/9
+Completed 302 Found in 15ms (ActiveRecord: 6.4ms | Allocations: 3775)
+
+
+Started GET "/articles/9" for 127.0.0.1 at 2020-07-11 19:31:50 -0600
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:8:in `show'
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (Duration: 0.4ms | Allocations: 80)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 6.6ms | ActiveRecord: 0.1ms | Allocations: 4033)
+
+
+Started GET "/articles" for 127.0.0.1 at 2020-07-11 19:31:51 -0600
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 4.2ms | Allocations: 741)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 15.1ms | ActiveRecord: 0.4ms | Allocations: 4171)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2020-07-11 19:31:53 -0600
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/new.html.erb within layouts/application (Duration: 4.3ms | Allocations: 685)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 12.5ms | ActiveRecord: 0.0ms | Allocations: 4119)
+
+
+Started POST "/articles" for 127.0.0.1 at 2020-07-11 19:31:56 -0600
+Processing by ArticlesController#create as HTML
+  Parameters: {"authenticity_token"=>"dn58heFhn2YTmrV1DtsfiVYfTKdFp4AMWCbqXaGF8OU+i/Wlx2yTMM5RZckuhug/j3ZuZjiHAM0lMmhWEOox6g==", "article"=>{"title"=>"1414", "body"=>"443223532"}, "commit"=>"Create Article"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/articles_controller.rb:17:in `create'
+  [1m[36mArticle Create (0.6ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "1414"], ["body", "443223532"], ["created_at", "2020-07-12 01:31:56.223933"], ["updated_at", "2020-07-12 01:31:56.223933"]]
+  ↳ app/controllers/articles_controller.rb:17:in `create'
+  [1m[35m (13.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/articles_controller.rb:17:in `create'
+Redirected to http://localhost:3000/articles/10
+Completed 302 Found in 25ms (ActiveRecord: 14.1ms | Allocations: 3748)
+
+
+Started GET "/articles/10" for 127.0.0.1 at 2020-07-11 19:31:56 -0600
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:8:in `show'
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 79)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 6.2ms | ActiveRecord: 0.1ms | Allocations: 4021)
+
+
+Started GET "/articles" for 127.0.0.1 at 2020-07-11 19:31:57 -0600
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 4.8ms | Allocations: 778)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 26ms (Views: 23.6ms | ActiveRecord: 0.4ms | Allocations: 4210)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2020-07-11 19:31:58 -0600
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/new.html.erb within layouts/application (Duration: 1.2ms | Allocations: 685)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 7ms (Views: 5.8ms | ActiveRecord: 0.0ms | Allocations: 4107)
+
+
+Started POST "/articles" for 127.0.0.1 at 2020-07-11 19:32:01 -0600
+Processing by ArticlesController#create as HTML
+  Parameters: {"authenticity_token"=>"0qH+GQoABPj089avCds/LSAaDTg2S308gLPq8gdnnVOaVHc5LA0Irik4BhMphsib+XMv+Utr/f39p2j5tghcXA==", "article"=>{"title"=>"567656585", "body"=>"87696759765"}, "commit"=>"Create Article"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/articles_controller.rb:17:in `create'
+  [1m[36mArticle Create (0.5ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "567656585"], ["body", "87696759765"], ["created_at", "2020-07-12 01:32:01.727537"], ["updated_at", "2020-07-12 01:32:01.727537"]]
+  ↳ app/controllers/articles_controller.rb:17:in `create'
+  [1m[35m (13.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/articles_controller.rb:17:in `create'
+Redirected to http://localhost:3000/articles/11
+Completed 302 Found in 27ms (ActiveRecord: 14.5ms | Allocations: 3756)
+
+
+Started GET "/articles/11" for 127.0.0.1 at 2020-07-11 19:32:01 -0600
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:8:in `show'
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (Duration: 0.4ms | Allocations: 79)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 6.5ms | ActiveRecord: 0.2ms | Allocations: 4027)
+
+
+Started GET "/articles/11" for 127.0.0.1 at 2020-07-11 19:33:45 -0600
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:8:in `show'
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (Duration: 0.6ms | Allocations: 89)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 8.3ms | ActiveRecord: 0.9ms | Allocations: 7518)
+
+
+Started DELETE "/articles/11" for 127.0.0.1 at 2020-07-11 19:33:46 -0600
+Processing by ArticlesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"4ilJI4N33eWKlljihipUuwZFMyHlm20bx1UtOwg2JhrS2oMlALAcZ62yJI4wiAuf765X79O/ejX4jeGVXvTtSg==", "id"=>"11"}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:22:in `destroy'
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/articles_controller.rb:23:in `destroy'
+  [1m[36mArticle Destroy (0.5ms)[0m  [1m[31mDELETE FROM "articles" WHERE "articles"."id" = ?[0m  [["id", 11]]
+  ↳ app/controllers/articles_controller.rb:23:in `destroy'
+  [1m[35m (10.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/articles_controller.rb:23:in `destroy'
+Redirected to http://localhost:3000/articles
+Completed 302 Found in 28ms (ActiveRecord: 11.5ms | Allocations: 4171)
+
+
+Started GET "/articles" for 127.0.0.1 at 2020-07-11 19:33:46 -0600
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 1.6ms | Allocations: 796)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 7.3ms | ActiveRecord: 0.2ms | Allocations: 4218)
+
+
+Started GET "/articles/8" for 127.0.0.1 at 2020-07-11 19:33:47 -0600
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:8:in `show'
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (Duration: 0.4ms | Allocations: 79)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 10.4ms | ActiveRecord: 0.2ms | Allocations: 4041)
+
+
+Started DELETE "/articles/8" for 127.0.0.1 at 2020-07-11 19:33:48 -0600
+Processing by ArticlesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"LGq9IGdvgX2EATODEsH+tVewnw8/SEOc1wOE2GEBJbocmXcm5KhA/6MlT++kY6GRvlv7wQlsVLLo20h2N8Pu6g==", "id"=>"8"}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:22:in `destroy'
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/articles_controller.rb:23:in `destroy'
+  [1m[36mArticle Destroy (0.6ms)[0m  [1m[31mDELETE FROM "articles" WHERE "articles"."id" = ?[0m  [["id", 8]]
+  ↳ app/controllers/articles_controller.rb:23:in `destroy'
+  [1m[35m (8.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/articles_controller.rb:23:in `destroy'
+Redirected to http://localhost:3000/articles
+Completed 302 Found in 25ms (ActiveRecord: 9.1ms | Allocations: 3874)
+
+
+Started GET "/articles" for 127.0.0.1 at 2020-07-11 19:33:48 -0600
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 1.4ms | Allocations: 740)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 7ms (Views: 6.6ms | ActiveRecord: 0.1ms | Allocations: 4177)
+
+
+Started GET "/articles/7" for 127.0.0.1 at 2020-07-11 19:33:49 -0600
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:8:in `show'
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (Duration: 0.5ms | Allocations: 79)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 11.3ms | ActiveRecord: 0.1ms | Allocations: 4023)
+
+
+Started DELETE "/articles/7" for 127.0.0.1 at 2020-07-11 19:33:50 -0600
+Processing by ArticlesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"17Sp306KGQhihmm1o7TgeMlH4su6t+tKh5yn4uabLejnR2PZzU3YikWiFdkVFr9cIKyGBYyT/GS4RGtMsFnmuA==", "id"=>"7"}
+  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:22:in `destroy'
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/articles_controller.rb:23:in `destroy'
+  [1m[36mArticle Destroy (1.3ms)[0m  [1m[31mDELETE FROM "articles" WHERE "articles"."id" = ?[0m  [["id", 7]]
+  ↳ app/controllers/articles_controller.rb:23:in `destroy'
+  [1m[35m (11.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/articles_controller.rb:23:in `destroy'
+Redirected to http://localhost:3000/articles
+Completed 302 Found in 51ms (ActiveRecord: 13.4ms | Allocations: 3862)
+
+
+Started GET "/articles" for 127.0.0.1 at 2020-07-11 19:33:50 -0600
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 1.6ms | Allocations: 703)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 7ms (Views: 6.2ms | ActiveRecord: 0.1ms | Allocations: 4131)
+
+
+Started GET "/articles/9" for 127.0.0.1 at 2020-07-11 19:34:00 -0600
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:8:in `show'
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (Duration: 0.5ms | Allocations: 89)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 23ms (Views: 7.9ms | ActiveRecord: 1.5ms | Allocations: 7560)
+
+
+Started DELETE "/articles/9" for 127.0.0.1 at 2020-07-11 19:34:01 -0600
+Processing by ArticlesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"yKcYXCp4LR+c7W4bx8KbsY27wPcivWP7yXI03MiAcYv4VNJaqb/snbvJEndxYMSVZFCkORSZdNX2qvhynkK62w==", "id"=>"9"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:22:in `destroy'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/articles_controller.rb:23:in `destroy'
+  [1m[36mArticle Destroy (0.6ms)[0m  [1m[31mDELETE FROM "articles" WHERE "articles"."id" = ?[0m  [["id", 9]]
+  ↳ app/controllers/articles_controller.rb:23:in `destroy'
+  [1m[35m (9.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/articles_controller.rb:23:in `destroy'
+Redirected to http://localhost:3000/articles/new
+Completed 302 Found in 25ms (ActiveRecord: 9.9ms | Allocations: 4165)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2020-07-11 19:34:01 -0600
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/new.html.erb within layouts/application (Duration: 2.1ms | Allocations: 737)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 7.1ms | ActiveRecord: 0.0ms | Allocations: 4155)
+
+
+Started POST "/articles" for 127.0.0.1 at 2020-07-11 19:34:04 -0600
+Processing by ArticlesController#create as HTML
+  Parameters: {"authenticity_token"=>"cQcLpr2kzV2KY/jSXGUQMQ2AsepHlwHH7KYh6AWBoj5B9MGgPmMM361HhL7qx08V5GvVJHGzFunTfu1GU0Npbg==", "article"=>{"title"=>"s324643575437", "body"=>"474365764"}, "commit"=>"Create Article"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/articles_controller.rb:17:in `create'
+  [1m[36mArticle Create (0.4ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "s324643575437"], ["body", "474365764"], ["created_at", "2020-07-12 01:34:04.718992"], ["updated_at", "2020-07-12 01:34:04.718992"]]
+  ↳ app/controllers/articles_controller.rb:17:in `create'
+  [1m[35m (9.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/articles_controller.rb:17:in `create'
+Redirected to http://localhost:3000/articles/12
+Completed 302 Found in 24ms (ActiveRecord: 9.6ms | Allocations: 3741)
+
+
+Started GET "/articles/12" for 127.0.0.1 at 2020-07-11 19:34:04 -0600
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:8:in `show'
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (Duration: 0.4ms | Allocations: 79)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 7ms (Views: 5.4ms | ActiveRecord: 0.1ms | Allocations: 4031)
+
+
+Started GET "/articles" for 127.0.0.1 at 2020-07-11 19:34:06 -0600
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.8ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 8.6ms | Allocations: 720)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 33ms (Views: 28.6ms | ActiveRecord: 0.8ms | Allocations: 4166)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2020-07-11 19:34:07 -0600
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/new.html.erb within layouts/application (Duration: 3.1ms | Allocations: 685)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 13.2ms | ActiveRecord: 0.0ms | Allocations: 4107)
+
+
+Started POST "/articles" for 127.0.0.1 at 2020-07-11 19:34:09 -0600
+Processing by ArticlesController#create as HTML
+  Parameters: {"authenticity_token"=>"Ga3ZtBAGgruYRYvb3EdhSlZDx85/QrTq/lF0zuBtKolRWFCUNguO7UWOW2f8Gpb8jyrlDwJiNCuDRfbFUQLrhg==", "article"=>{"title"=>"5645745", "body"=>"7474567"}, "commit"=>"Create Article"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/articles_controller.rb:17:in `create'
+  [1m[36mArticle Create (0.4ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "5645745"], ["body", "7474567"], ["created_at", "2020-07-12 01:34:09.566014"], ["updated_at", "2020-07-12 01:34:09.566014"]]
+  ↳ app/controllers/articles_controller.rb:17:in `create'
+  [1m[35m (9.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/articles_controller.rb:17:in `create'
+Redirected to http://localhost:3000/articles/13
+Completed 302 Found in 18ms (ActiveRecord: 9.5ms | Allocations: 3758)
+
+
+Started GET "/articles/13" for 127.0.0.1 at 2020-07-11 19:34:09 -0600
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:8:in `show'
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (Duration: 0.6ms | Allocations: 79)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 8.6ms | ActiveRecord: 0.1ms | Allocations: 4019)
+
+
+Started GET "/articles" for 127.0.0.1 at 2020-07-11 19:34:11 -0600
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 1.6ms | Allocations: 740)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 7ms (Views: 6.5ms | ActiveRecord: 0.1ms | Allocations: 4182)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2020-07-11 19:34:12 -0600
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/new.html.erb within layouts/application (Duration: 1.5ms | Allocations: 685)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 7ms (Views: 6.2ms | ActiveRecord: 0.0ms | Allocations: 4107)
+
+
+Started POST "/articles" for 127.0.0.1 at 2020-07-11 19:34:14 -0600
+Processing by ArticlesController#create as HTML
+  Parameters: {"authenticity_token"=>"0sx7kNJJIYCSdn9rD9IlozFj0Rsv/uUHxwVEBbLxRgmaOfKw9EQt1k+9r9cvj9IV6Arz2lLeZca6EcYOA56HBg==", "article"=>{"title"=>"68768768", "body"=>"9005"}, "commit"=>"Create Article"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/articles_controller.rb:17:in `create'
+  [1m[36mArticle Create (0.3ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "68768768"], ["body", "9005"], ["created_at", "2020-07-12 01:34:14.670660"], ["updated_at", "2020-07-12 01:34:14.670660"]]
+  ↳ app/controllers/articles_controller.rb:17:in `create'
+  [1m[35m (4.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/articles_controller.rb:17:in `create'
+Redirected to http://localhost:3000/articles/14
+Completed 302 Found in 11ms (ActiveRecord: 4.6ms | Allocations: 3029)
+
+
+Started GET "/articles/14" for 127.0.0.1 at 2020-07-11 19:34:14 -0600
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:8:in `show'
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (Duration: 0.4ms | Allocations: 79)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 5.7ms | ActiveRecord: 0.2ms | Allocations: 4025)
+
+
+Started GET "/articles" for 127.0.0.1 at 2020-07-11 19:34:15 -0600
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 778)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 7.4ms | ActiveRecord: 0.2ms | Allocations: 4210)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2020-07-11 19:34:16 -0600
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/new.html.erb within layouts/application (Duration: 2.8ms | Allocations: 685)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 9.3ms | ActiveRecord: 0.0ms | Allocations: 4105)
+
+
+Started POST "/articles" for 127.0.0.1 at 2020-07-11 19:34:19 -0600
+Processing by ArticlesController#create as HTML
+  Parameters: {"authenticity_token"=>"g+OTt/xKRDmzdBWUibkCCpt+UoYTZ9Uomon1U+1lBprLFhqX2kdIb26/xSip5PW8QhdwR25HVennnXdYXArHlQ==", "article"=>{"title"=>"23534543", "body"=>"5345234"}, "commit"=>"Create Article"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/articles_controller.rb:17:in `create'
+  [1m[36mArticle Create (0.6ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "23534543"], ["body", "5345234"], ["created_at", "2020-07-12 01:34:19.335673"], ["updated_at", "2020-07-12 01:34:19.335673"]]
+  ↳ app/controllers/articles_controller.rb:17:in `create'
+  [1m[35m (10.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/articles_controller.rb:17:in `create'
+Redirected to http://localhost:3000/articles/15
+Completed 302 Found in 32ms (ActiveRecord: 11.5ms | Allocations: 3750)
+
+
+Started GET "/articles/15" for 127.0.0.1 at 2020-07-11 19:34:19 -0600
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:8:in `show'
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 79)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 7ms (Views: 4.7ms | ActiveRecord: 0.1ms | Allocations: 4035)
+
+
+Started GET "/articles" for 127.0.0.1 at 2020-07-11 19:34:20 -0600
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 815)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 7.1ms | ActiveRecord: 0.1ms | Allocations: 4242)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2020-07-11 19:34:21 -0600
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/new.html.erb within layouts/application (Duration: 8.8ms | Allocations: 685)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 34ms (Views: 30.0ms | ActiveRecord: 0.0ms | Allocations: 4126)
+
+
+Started POST "/articles" for 127.0.0.1 at 2020-07-11 19:34:23 -0600
+Processing by ArticlesController#create as HTML
+  Parameters: {"authenticity_token"=>"LXAVvUSCiDhDpvEO6Jtw635XU92QK8u4ulhufez5wkhlhZydYo+Ebp5tIbLIxoddpz5xHO0LS3nHTOx2XZYDRw==", "article"=>{"title"=>"45344362", "body"=>"32623"}, "commit"=>"Create Article"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/articles_controller.rb:17:in `create'
+  [1m[36mArticle Create (0.4ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "45344362"], ["body", "32623"], ["created_at", "2020-07-12 01:34:23.774628"], ["updated_at", "2020-07-12 01:34:23.774628"]]
+  ↳ app/controllers/articles_controller.rb:17:in `create'
+  [1m[35m (7.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/articles_controller.rb:17:in `create'
+Redirected to http://localhost:3000/articles/16
+Completed 302 Found in 17ms (ActiveRecord: 8.4ms | Allocations: 3746)
+
+
+Started GET "/articles/16" for 127.0.0.1 at 2020-07-11 19:34:23 -0600
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:8:in `show'
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (Duration: 0.2ms | Allocations: 79)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 7ms (Views: 5.4ms | ActiveRecord: 0.1ms | Allocations: 4031)
+
+
+Started GET "/articles" for 127.0.0.1 at 2020-07-11 19:34:24 -0600
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 852)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 6ms (Views: 5.7ms | ActiveRecord: 0.1ms | Allocations: 4284)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2020-07-11 19:34:25 -0600
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/new.html.erb within layouts/application (Duration: 1.6ms | Allocations: 685)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.0ms | Allocations: 4105)
+
+
+Started POST "/articles" for 127.0.0.1 at 2020-07-11 19:34:27 -0600
+Processing by ArticlesController#create as HTML
+  Parameters: {"authenticity_token"=>"Og3QyMXNnnpljMiOEU4yGMPBlcbe9AH8E2AuOoS8GkBy+Fno48CSLLhHGDIxE8WuGqi3B6PUgT1udKwxNdPbTw==", "article"=>{"title"=>"234324324", "body"=>"3243432"}, "commit"=>"Create Article"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/articles_controller.rb:17:in `create'
+  [1m[36mArticle Create (0.3ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "234324324"], ["body", "3243432"], ["created_at", "2020-07-12 01:34:27.339920"], ["updated_at", "2020-07-12 01:34:27.339920"]]
+  ↳ app/controllers/articles_controller.rb:17:in `create'
+  [1m[35m (4.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/articles_controller.rb:17:in `create'
+Redirected to http://localhost:3000/articles/17
+Completed 302 Found in 12ms (ActiveRecord: 5.0ms | Allocations: 3762)
+
+
+Started GET "/articles/17" for 127.0.0.1 at 2020-07-11 19:34:27 -0600
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:8:in `show'
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (Duration: 0.7ms | Allocations: 79)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 6.6ms | ActiveRecord: 0.1ms | Allocations: 4045)
+
+
+Started GET "/articles" for 127.0.0.1 at 2020-07-11 19:34:28 -0600
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 4.3ms | Allocations: 889)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 13.6ms | ActiveRecord: 0.3ms | Allocations: 4313)
+
+
+Started GET "/articles" for 127.0.0.1 at 2020-07-11 19:35:26 -0600
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 5.1ms | Allocations: 1049)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 18ms (Views: 15.6ms | ActiveRecord: 0.2ms | Allocations: 5384)
+
+
+Started GET "/articles/13" for 127.0.0.1 at 2020-07-11 19:35:27 -0600
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mArticle Load (0.7ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:8:in `show'
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (Duration: 3.3ms | Allocations: 224)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 29ms (Views: 18.4ms | ActiveRecord: 0.7ms | Allocations: 4327)
+
+
+Started DELETE "/articles/13" for 127.0.0.1 at 2020-07-11 19:35:32 -0600
+Processing by ArticlesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"1ClqNU2liBSGUqowPxOoYER6izlFdBSE8DD3ItW1Park2qAzzmJJlqF21lyJsfdErZHv93NQA6rP6DuMg3f2+g==", "id"=>"13"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:22:in `destroy'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/articles_controller.rb:23:in `destroy'
+  [1m[36mArticle Destroy (0.3ms)[0m  [1m[31mDELETE FROM "articles" WHERE "articles"."id" = ?[0m  [["id", 13]]
+  ↳ app/controllers/articles_controller.rb:23:in `destroy'
+  [1m[35m (9.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/articles_controller.rb:23:in `destroy'
+Redirected to http://localhost:3000/articles/new
+Completed 302 Found in 16ms (ActiveRecord: 9.5ms | Allocations: 3853)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2020-07-11 19:35:32 -0600
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/new.html.erb within layouts/application (Duration: 1.9ms | Allocations: 934)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 7.4ms | ActiveRecord: 0.0ms | Allocations: 4511)
+
+
+Started GET "/articles/" for 127.0.0.1 at 2020-07-11 19:35:40 -0600
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 7.1ms | Allocations: 3811)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 12.1ms | ActiveRecord: 1.1ms | Allocations: 7656)
+
+
+Started GET "/articles/12" for 127.0.0.1 at 2020-07-11 19:35:42 -0600
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mArticle Load (0.8ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:8:in `show'
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (Duration: 1.5ms | Allocations: 92)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 42ms (Views: 31.5ms | ActiveRecord: 0.8ms | Allocations: 4153)
+
+
+Started DELETE "/articles/12" for 127.0.0.1 at 2020-07-11 19:35:44 -0600
+Processing by ArticlesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"tgSr5bt3lSvEgADbg2khQV5rtoTRHsYf3yXK4qOIAa2G92HjOLBUqeOkfLc1y35lt4DSSuc60THg/QZM9UrK/Q==", "id"=>"12"}
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:22:in `destroy'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/articles_controller.rb:23:in `destroy'
+  [1m[36mArticle Destroy (0.3ms)[0m  [1m[31mDELETE FROM "articles" WHERE "articles"."id" = ?[0m  [["id", 12]]
+  ↳ app/controllers/articles_controller.rb:23:in `destroy'
+  [1m[35m (7.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/articles_controller.rb:23:in `destroy'
+Redirected to http://localhost:3000/articles
+Completed 302 Found in 19ms (ActiveRecord: 7.7ms | Allocations: 4175)
+
+
+Started GET "/articles" for 127.0.0.1 at 2020-07-11 19:35:44 -0600
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 815)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 6.9ms | ActiveRecord: 0.2ms | Allocations: 4249)
+
+
+Started GET "/articles/14" for 127.0.0.1 at 2020-07-11 19:36:52 -0600
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:8:in `show'
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (Duration: 0.6ms | Allocations: 90)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 14.1ms | ActiveRecord: 0.4ms | Allocations: 4034)
+
+
+Started GET "/articles/14" for 127.0.0.1 at 2020-07-11 19:37:18 -0600
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:8:in `show'
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (Duration: 2.5ms | Allocations: 267)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 42ms (Views: 31.6ms | ActiveRecord: 0.6ms | Allocations: 5118)
+
+
+Started GET "/articles/14/edit" for 127.0.0.1 at 2020-07-11 19:37:20 -0600
+  
+AbstractController::ActionNotFound (The action 'edit' could not be found for ArticlesController):
+  
+actionpack (6.0.3.2) lib/abstract_controller/base.rb:131:in `process'
+actionview (6.0.3.2) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.0.3.2) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.3.2) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/cookies.rb:648:in `call'
+activerecord (6.0.3.2) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.3) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.3) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.3) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.3) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.2.2) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.2) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/articles/14" for 127.0.0.1 at 2020-07-11 19:37:22 -0600
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:8:in `show'
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 121)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 7.0ms | ActiveRecord: 0.1ms | Allocations: 4082)
+
+
+Started GET "/articles" for 127.0.0.1 at 2020-07-11 19:41:20 -0600
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 6.4ms | Allocations: 3926)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 11.1ms | ActiveRecord: 0.7ms | Allocations: 8531)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2020-07-11 19:41:24 -0600
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/_form.html.erb (Duration: 2.9ms | Allocations: 980)
+  Rendered articles/new.html.erb within layouts/application (Duration: 5.1ms | Allocations: 1261)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 10.9ms | ActiveRecord: 0.0ms | Allocations: 4823)
+
+
+Started POST "/articles" for 127.0.0.1 at 2020-07-11 19:41:26 -0600
+Processing by ArticlesController#create as HTML
+  Parameters: {"authenticity_token"=>"mkjXPd7EplL6J66acb5Sut/H6zl9Jm9n4HQKxDfggJXSvV4d+MmqBCfsfiZR46UMBq7J+AAG76adYIjPho9Bmg==", "article"=>{"title"=>"4234", "body"=>"234"}, "commit"=>"Create Article"}
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/articles_controller.rb:17:in `create'
+  [1m[36mArticle Create (0.8ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "4234"], ["body", "234"], ["created_at", "2020-07-12 01:41:26.261630"], ["updated_at", "2020-07-12 01:41:26.261630"]]
+  ↳ app/controllers/articles_controller.rb:17:in `create'
+  [1m[35m (10.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/articles_controller.rb:17:in `create'
+Redirected to http://localhost:3000/articles/18
+Completed 302 Found in 34ms (ActiveRecord: 11.6ms | Allocations: 3775)
+
+
+Started GET "/articles/18" for 127.0.0.1 at 2020-07-11 19:41:26 -0600
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"18"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:8:in `show'
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (Duration: 0.9ms | Allocations: 263)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 8.4ms | ActiveRecord: 0.2ms | Allocations: 4614)
+
+
+Started GET "/articles" for 127.0.0.1 at 2020-07-11 19:41:27 -0600
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 853)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 12.6ms | ActiveRecord: 0.2ms | Allocations: 4287)
+
+
+Started GET "/articles/10" for 127.0.0.1 at 2020-07-11 19:41:37 -0600
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:8:in `show'
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (Duration: 1.7ms | Allocations: 114)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 35ms (Views: 26.1ms | ActiveRecord: 0.6ms | Allocations: 4066)
+
+
+Started GET "/articles/10/edit" for 127.0.0.1 at 2020-07-11 19:41:38 -0600
+Processing by ArticlesController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:28:in `edit'
+  Rendering articles/edit.html.erb within layouts/application
+  Rendered articles/_form.html.erb (Duration: 1.4ms | Allocations: 758)
+  Rendered articles/edit.html.erb within layouts/application (Duration: 1.8ms | Allocations: 906)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 10.8ms | ActiveRecord: 0.1ms | Allocations: 4987)
+
+
+Started GET "/articles/10/edit" for 127.0.0.1 at 2020-07-11 19:41:49 -0600
+Processing by ArticlesController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:28:in `edit'
+  Rendering articles/edit.html.erb within layouts/application
+  Rendered articles/_form.html.erb (Duration: 1.8ms | Allocations: 728)
+  Rendered articles/edit.html.erb within layouts/application (Duration: 2.6ms | Allocations: 789)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 8.6ms | ActiveRecord: 0.2ms | Allocations: 4734)
+
+
+Started GET "/articles/10/edit" for 127.0.0.1 at 2020-07-11 19:42:31 -0600
+Processing by ArticlesController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:28:in `edit'
+  Rendering articles/edit.html.erb within layouts/application
+  Rendered articles/_form.html.erb (Duration: 4.5ms | Allocations: 969)
+  Rendered articles/edit.html.erb within layouts/application (Duration: 7.1ms | Allocations: 1251)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 26ms (Views: 23.5ms | ActiveRecord: 0.1ms | Allocations: 6107)
+
+
+Started PATCH "/articles/10" for 127.0.0.1 at 2020-07-11 19:42:35 -0600
+  
+AbstractController::ActionNotFound (The action 'update' could not be found for ArticlesController):
+  
+actionpack (6.0.3.2) lib/abstract_controller/base.rb:131:in `process'
+actionview (6.0.3.2) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.0.3.2) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.3.2) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/cookies.rb:648:in `call'
+activerecord (6.0.3.2) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.3) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.3) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.3) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.3) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.2.2) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.2) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started PATCH "/articles/10" for 127.0.0.1 at 2020-07-11 19:45:16 -0600
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ArticlesController#update as HTML
+  Parameters: {"authenticity_token"=>"XUzvidufEGeVKD5hv1YFxcxQOjcljXCdPZQlJD2LMR9tvyWPWFjR5bIMQg0J9FrhJbte+ROpZ7MCTOmKa0n6Tw==", "article"=>{"title"=>"1414asdfds", "body"=>"443223532asdfsdaf"}, "commit"=>"Update Article", "id"=>"10"}
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms | Allocations: 4321)
+
+
+  
+NoMethodError (undefined method `fine' for #<Class:0x00007f7c78018618>
+Did you mean?  find):
+  
+app/controllers/articles_controller.rb:32:in `update'
+Started GET "/articles/10/edit" for 127.0.0.1 at 2020-07-11 19:45:19 -0600
+Processing by ArticlesController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:28:in `edit'
+  Rendering articles/edit.html.erb within layouts/application
+  Rendered articles/_form.html.erb (Duration: 1.8ms | Allocations: 791)
+  Rendered articles/edit.html.erb within layouts/application (Duration: 2.1ms | Allocations: 852)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 18ms (Views: 8.2ms | ActiveRecord: 0.5ms | Allocations: 7554)
+
+
+Started PATCH "/articles/10" for 127.0.0.1 at 2020-07-11 19:45:21 -0600
+Processing by ArticlesController#update as HTML
+  Parameters: {"authenticity_token"=>"pO7f8iEElyx37hmhXAXTiyLzODHSAdhh84eB8FFz0vaUHRX0osNWrlDKZc3qp4yvyxhc/+Qlz0/MX01eB7EZpg==", "article"=>{"title"=>"1414asdfds35", "body"=>"443223532asdfsdaf435"}, "commit"=>"Update Article", "id"=>"10"}
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms | Allocations: 3587)
+
+
+  
+NoMethodError (undefined method `fine' for #<Class:0x00007f7c78018618>
+Did you mean?  find):
+  
+app/controllers/articles_controller.rb:32:in `update'
+Started GET "/articles/10/edit" for 127.0.0.1 at 2020-07-11 19:45:29 -0600
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ArticlesController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:28:in `edit'
+  Rendering articles/edit.html.erb within layouts/application
+  Rendered articles/_form.html.erb (Duration: 1.5ms | Allocations: 791)
+  Rendered articles/edit.html.erb within layouts/application (Duration: 1.8ms | Allocations: 852)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 7.5ms | ActiveRecord: 0.6ms | Allocations: 8327)
+
+
+Started PATCH "/articles/10" for 127.0.0.1 at 2020-07-11 19:45:32 -0600
+Processing by ArticlesController#update as HTML
+  Parameters: {"authenticity_token"=>"+WNKuZqT1vbfXRcu8IBksW3QEykadgFkrvK7c8wHeI7JkIC/GVQXdPh5a0JGIjuVhDt35yxSFkqRKnfdmsWz3g==", "article"=>{"title"=>"1414asdfds3534635653464537654", "body"=>"443223532asdfsdaf435734567555555555555555555555555555555"}, "commit"=>"Update Article", "id"=>"10"}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:32:in `update'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/articles_controller.rb:33:in `update'
+  [1m[36mArticle Update (0.9ms)[0m  [1m[33mUPDATE "articles" SET "title" = ?, "body" = ?, "updated_at" = ? WHERE "articles"."id" = ?[0m  [["title", "1414asdfds3534635653464537654"], ["body", "443223532asdfsdaf435734567555555555555555555555555555555"], ["updated_at", "2020-07-12 01:45:32.873909"], ["id", 10]]
+  ↳ app/controllers/articles_controller.rb:33:in `update'
+  [1m[35m (8.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/articles_controller.rb:33:in `update'
+Redirected to http://localhost:3000/articles/10
+Completed 302 Found in 32ms (ActiveRecord: 9.6ms | Allocations: 4393)
+
+
+Started GET "/articles/10" for 127.0.0.1 at 2020-07-11 19:45:32 -0600
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:8:in `show'
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (Duration: 1.7ms | Allocations: 264)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 13.0ms | ActiveRecord: 0.3ms | Allocations: 4345)
+
+
+Started GET "/articles/10" for 127.0.0.1 at 2020-07-11 19:46:52 -0600
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:8:in `show'
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (Duration: 0.5ms | Allocations: 128)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 23ms (Views: 8.2ms | ActiveRecord: 1.7ms | Allocations: 7539)
+
+
+Started GET "/articles/10/edit" for 127.0.0.1 at 2020-07-11 19:46:53 -0600
+Processing by ArticlesController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:28:in `edit'
+  Rendering articles/edit.html.erb within layouts/application
+  Rendered articles/_form.html.erb (Duration: 6.4ms | Allocations: 782)
+  Rendered articles/edit.html.erb within layouts/application (Duration: 8.3ms | Allocations: 843)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 27ms (Views: 22.3ms | ActiveRecord: 0.3ms | Allocations: 4786)
+
+
+Started PATCH "/articles/10" for 127.0.0.1 at 2020-07-11 19:46:56 -0600
+Processing by ArticlesController#update as HTML
+  Parameters: {"authenticity_token"=>"Le6eC2mqX/Yavo7CHsu4LpGAoo38O8dABNJOEqUL61jg/sAR+cUwSUlyIZvchQz+T5mhCCeD3yhpkjGu7yMQCg==", "article"=>{"title"=>"1414asdfds3534635653464537a654", "body"=>"443223532asdfsdaf4357345675555555555a55555555555555555555"}, "commit"=>"Update Article", "id"=>"10"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:32:in `update'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/articles_controller.rb:33:in `update'
+  [1m[36mArticle Update (0.4ms)[0m  [1m[33mUPDATE "articles" SET "title" = ?, "body" = ?, "updated_at" = ? WHERE "articles"."id" = ?[0m  [["title", "1414asdfds3534635653464537a654"], ["body", "443223532asdfsdaf4357345675555555555a55555555555555555555"], ["updated_at", "2020-07-12 01:46:56.264080"], ["id", 10]]
+  ↳ app/controllers/articles_controller.rb:33:in `update'
+  [1m[35m (5.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/articles_controller.rb:33:in `update'
+Redirected to http://localhost:3000/articles/10
+Completed 302 Found in 18ms (ActiveRecord: 6.5ms | Allocations: 4407)
+
+
+Started GET "/articles/10" for 127.0.0.1 at 2020-07-11 19:46:56 -0600
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:8:in `show'
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (Duration: 0.6ms | Allocations: 116)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 5.6ms | ActiveRecord: 0.3ms | Allocations: 4075)
+
+
+Started GET "/articles/10" for 127.0.0.1 at 2020-07-11 19:46:57 -0600
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:8:in `show'
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (Duration: 0.6ms | Allocations: 116)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 9.2ms | ActiveRecord: 0.2ms | Allocations: 4088)
+
+
+Started GET "/articles" for 127.0.0.1 at 2020-07-11 19:47:12 -0600
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1030)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 11.2ms | ActiveRecord: 0.3ms | Allocations: 4614)
+
+
+Started GET "/articles" for 127.0.0.1 at 2020-07-11 19:47:13 -0600
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 3.5ms | Allocations: 853)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 14.3ms | ActiveRecord: 0.3ms | Allocations: 4307)
+
+
+Started GET "/articles/15" for 127.0.0.1 at 2020-07-11 19:47:15 -0600
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:8:in `show'
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (Duration: 0.6ms | Allocations: 116)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 7.3ms | ActiveRecord: 0.2ms | Allocations: 4095)
+
+
+Started GET "/articles/15/edit" for 127.0.0.1 at 2020-07-11 19:47:16 -0600
+Processing by ArticlesController#edit as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:28:in `edit'
+  Rendering articles/edit.html.erb within layouts/application
+  Rendered articles/_form.html.erb (Duration: 4.3ms | Allocations: 730)
+  Rendered articles/edit.html.erb within layouts/application (Duration: 5.0ms | Allocations: 791)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 23ms (Views: 16.6ms | ActiveRecord: 0.4ms | Allocations: 4756)
+
+
+Started PATCH "/articles/15" for 127.0.0.1 at 2020-07-11 19:47:17 -0600
+Processing by ArticlesController#update as HTML
+  Parameters: {"authenticity_token"=>"mNFrrohCHKXS5++xhxbQ/fPi1adjMpEuQDCzToloTQEtk5ddclQRaUSslOkgO2Uffm/XggtGLAKnQv33dmRb8A==", "article"=>{"title"=>"23534543a", "body"=>"5345234a"}, "commit"=>"Update Article", "id"=>"15"}
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:32:in `update'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/articles_controller.rb:33:in `update'
+  [1m[36mArticle Update (0.6ms)[0m  [1m[33mUPDATE "articles" SET "title" = ?, "body" = ?, "updated_at" = ? WHERE "articles"."id" = ?[0m  [["title", "23534543a"], ["body", "5345234a"], ["updated_at", "2020-07-12 01:47:17.959702"], ["id", 15]]
+  ↳ app/controllers/articles_controller.rb:33:in `update'
+  [1m[35m (8.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/articles_controller.rb:33:in `update'
+Redirected to http://localhost:3000/articles/15
+Completed 302 Found in 29ms (ActiveRecord: 9.4ms | Allocations: 4448)
+
+
+Started GET "/articles/15" for 127.0.0.1 at 2020-07-11 19:47:18 -0600
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:8:in `show'
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (Duration: 0.4ms | Allocations: 114)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 5.6ms | ActiveRecord: 0.2ms | Allocations: 4090)
+
+
+Started GET "/articles" for 127.0.0.1 at 2020-07-11 19:47:19 -0600
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 7.8ms | Allocations: 853)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 27ms (Views: 23.2ms | ActiveRecord: 0.4ms | Allocations: 4324)
+
+
+Started GET "/articles" for 127.0.0.1 at 2020-07-11 19:47:21 -0600
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 3.0ms | Allocations: 853)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 9.2ms | ActiveRecord: 0.2ms | Allocations: 4300)
+
+
+Started GET "/articles" for 127.0.0.1 at 2020-07-11 20:16:40 -0600
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1029)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 11.4ms | ActiveRecord: 0.3ms | Allocations: 5406)
+
+
+Started GET "/articles" for 127.0.0.1 at 2020-07-11 20:16:42 -0600
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 859)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 7ms (Views: 5.8ms | ActiveRecord: 0.2ms | Allocations: 4297)
+
+
+Started GET "/articles" for 127.0.0.1 at 2020-07-11 20:16:43 -0600
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 3.2ms | Allocations: 853)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 14.6ms | ActiveRecord: 0.3ms | Allocations: 4284)
+
+
+Started GET "/articles/14" for 127.0.0.1 at 2020-07-11 20:16:43 -0600
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:8:in `show'
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (Duration: 0.7ms | Allocations: 262)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 7.9ms | ActiveRecord: 0.2ms | Allocations: 4374)
+
+
+Started GET "/articles/14/edit" for 127.0.0.1 at 2020-07-11 20:16:44 -0600
+Processing by ArticlesController#edit as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:28:in `edit'
+  Rendering articles/edit.html.erb within layouts/application
+  Rendered articles/_form.html.erb (Duration: 4.7ms | Allocations: 969)
+  Rendered articles/edit.html.erb within layouts/application (Duration: 6.4ms | Allocations: 1250)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 18ms (Views: 15.7ms | ActiveRecord: 0.2ms | Allocations: 5341)
+
+
+Started PATCH "/articles/14" for 127.0.0.1 at 2020-07-11 20:16:46 -0600
+Processing by ArticlesController#update as HTML
+  Parameters: {"authenticity_token"=>"GNHC/eUr4O7KlYUAPw4jfQQB5bmRGLKlCgFyGK2IQYqDCtWrPztqHxnFf4QNiFzgxiIYzzrcTf5ekolK1mUEew==", "article"=>{"title"=>"68768768a", "body"=>"9005a"}, "commit"=>"Update Article", "id"=>"14"}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:32:in `update'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/articles_controller.rb:33:in `update'
+  [1m[36mArticle Update (0.6ms)[0m  [1m[33mUPDATE "articles" SET "title" = ?, "body" = ?, "updated_at" = ? WHERE "articles"."id" = ?[0m  [["title", "68768768a"], ["body", "9005a"], ["updated_at", "2020-07-12 02:16:46.453801"], ["id", 14]]
+  ↳ app/controllers/articles_controller.rb:33:in `update'
+  [1m[35m (6.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/articles_controller.rb:33:in `update'
+Redirected to http://localhost:3000/articles/14
+Completed 302 Found in 28ms (ActiveRecord: 7.6ms | Allocations: 4403)
+
+
+Started GET "/articles/14" for 127.0.0.1 at 2020-07-11 20:16:46 -0600
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:8:in `show'
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 116)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 6ms (Views: 4.5ms | ActiveRecord: 0.2ms | Allocations: 4113)
+
+
+Started DELETE "/articles/14" for 127.0.0.1 at 2020-07-11 20:16:50 -0600
+Processing by ArticlesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"5gKNEsR4cSdq3npJhTpJhLtrDbRvuQZSBt6LD1GGx9LW8UcUR7+wpU36BiUzmBagUoBpelmdEXw5BkehB0QMgg==", "id"=>"14"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:22:in `destroy'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/articles_controller.rb:23:in `destroy'
+  [1m[36mArticle Destroy (0.3ms)[0m  [1m[31mDELETE FROM "articles" WHERE "articles"."id" = ?[0m  [["id", 14]]
+  ↳ app/controllers/articles_controller.rb:23:in `destroy'
+  [1m[35m (11.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/articles_controller.rb:23:in `destroy'
+Redirected to http://localhost:3000/articles
+Completed 302 Found in 26ms (ActiveRecord: 12.3ms | Allocations: 4163)
+
+
+Started GET "/articles" for 127.0.0.1 at 2020-07-11 20:16:50 -0600
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 2.2ms | Allocations: 817)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 7.1ms | ActiveRecord: 0.3ms | Allocations: 4267)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2020-07-11 20:16:51 -0600
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/_form.html.erb (Duration: 3.2ms | Allocations: 696)
+  Rendered articles/new.html.erb within layouts/application (Duration: 6.9ms | Allocations: 843)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 13.4ms | ActiveRecord: 0.0ms | Allocations: 4415)
+
+
+Started POST "/articles" for 127.0.0.1 at 2020-07-11 20:16:52 -0600
+Processing by ArticlesController#create as HTML
+  Parameters: {"authenticity_token"=>"9H08K7rhV51YxGPapzFNQehCNFAVonqjYREk6oRTDZa8iLULnOxby4UPs2aHbLr3MSsWkWiC+mIcBabhNTzMmQ==", "article"=>{"title"=>"a", "body"=>"a"}, "commit"=>"Create Article"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/articles_controller.rb:17:in `create'
+  [1m[36mArticle Create (0.4ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "a"], ["body", "a"], ["created_at", "2020-07-12 02:16:52.923480"], ["updated_at", "2020-07-12 02:16:52.923480"]]
+  ↳ app/controllers/articles_controller.rb:17:in `create'
+  [1m[35m (7.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/articles_controller.rb:17:in `create'
+Redirected to http://localhost:3000/articles/19
+Completed 302 Found in 16ms (ActiveRecord: 7.9ms | Allocations: 3761)
+
+
+Started GET "/articles/19" for 127.0.0.1 at 2020-07-11 20:16:52 -0600
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:8:in `show'
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (Duration: 0.8ms | Allocations: 116)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 10.8ms | ActiveRecord: 0.2ms | Allocations: 4074)
+
+
+Started GET "/articles" for 127.0.0.1 at 2020-07-11 20:16:54 -0600
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 2.2ms | Allocations: 854)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 9.9ms | ActiveRecord: 0.2ms | Allocations: 4296)
+
+
+Started GET "/articles" for 127.0.0.1 at 2020-07-11 20:17:52 -0600
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 8.9ms | Allocations: 3812)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 15.7ms | ActiveRecord: 1.0ms | Allocations: 7680)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2020-07-11 20:17:54 -0600
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/_form.html.erb (Duration: 4.0ms | Allocations: 741)
+  Rendered articles/new.html.erb within layouts/application (Duration: 4.5ms | Allocations: 802)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 18ms (Views: 15.9ms | ActiveRecord: 0.0ms | Allocations: 4230)
+
+
+Started POST "/articles" for 127.0.0.1 at 2020-07-11 20:17:56 -0600
+Processing by ArticlesController#create as HTML
+  Parameters: {"authenticity_token"=>"qaYEA1u7DEaeKbrx3XxAcl88jFds9JBeBLhVKsBT1EnhU40jfbYAEEPiak39IbfEhlWulhHUEJ95rNchcTwVRg==", "article"=>{"title"=>"b", "body"=>"b"}, "commit"=>"Create Article"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/articles_controller.rb:17:in `create'
+  [1m[36mArticle Create (0.4ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "b"], ["body", "b"], ["created_at", "2020-07-12 02:17:56.545096"], ["updated_at", "2020-07-12 02:17:56.545096"]]
+  ↳ app/controllers/articles_controller.rb:17:in `create'
+  [1m[35m (8.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/articles_controller.rb:17:in `create'
+Redirected to http://localhost:3000/articles/20
+Completed 302 Found in 17ms (ActiveRecord: 9.0ms | Allocations: 3776)
+
+
+Started GET "/articles/20" for 127.0.0.1 at 2020-07-11 20:17:56 -0600
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:8:in `show'
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (Duration: 0.4ms | Allocations: 116)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 7ms (Views: 4.5ms | ActiveRecord: 0.2ms | Allocations: 4227)
+
+
+Started DELETE "/articles/20" for 127.0.0.1 at 2020-07-11 20:18:00 -0600
+Processing by ArticlesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"6RuPXJ9YwVNzTNvodsJ7Eg+V0h2s4yz/eFLG9xR/F4fZ6EVaHJ8A0VRop4TAYCQ25n6205rHO9FHigpZQr3c1w==", "id"=>"20"}
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:23:in `destroy'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/articles_controller.rb:24:in `destroy'
+  [1m[36mArticle Destroy (0.3ms)[0m  [1m[31mDELETE FROM "articles" WHERE "articles"."id" = ?[0m  [["id", 20]]
+  ↳ app/controllers/articles_controller.rb:24:in `destroy'
+  [1m[35m (10.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/articles_controller.rb:24:in `destroy'
+Redirected to http://localhost:3000/articles
+Completed 302 Found in 18ms (ActiveRecord: 11.2ms | Allocations: 4181)
+
+
+Started GET "/articles" for 127.0.0.1 at 2020-07-11 20:18:00 -0600
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 853)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 7.0ms | ActiveRecord: 0.2ms | Allocations: 4326)
+
+
+Started GET "/" for 127.0.0.1 at 2020-07-11 20:18:28 -0600
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/cameron/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/railties-6.0.3.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/cameron/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/railties-6.0.3.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 6.7ms | Allocations: 187)
+Completed 200 OK in 10ms (Views: 8.4ms | ActiveRecord: 0.0ms | Allocations: 970)
+
+
+Started GET "/" for 127.0.0.1 at 2020-07-11 20:19:02 -0600
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 6.9ms | Allocations: 3964)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 13.2ms | ActiveRecord: 0.7ms | Allocations: 8597)
+
+
+Started GET "/articles/15" for 127.0.0.1 at 2020-07-11 20:19:07 -0600
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:8:in `show'
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (Duration: 1.9ms | Allocations: 263)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 21ms (Views: 14.7ms | ActiveRecord: 0.4ms | Allocations: 4475)
+
+
+Started GET "/articles" for 127.0.0.1 at 2020-07-11 20:19:08 -0600
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 854)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 9.1ms | ActiveRecord: 0.2ms | Allocations: 4317)
+
+
+Started GET "/" for 127.0.0.1 at 2020-07-11 20:19:09 -0600
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 853)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 8.4ms | ActiveRecord: 0.2ms | Allocations: 4292)
+
+
+Started GET "/articles/16" for 127.0.0.1 at 2020-07-11 20:19:11 -0600
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:8:in `show'
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (Duration: 0.6ms | Allocations: 114)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 9.4ms | ActiveRecord: 0.2ms | Allocations: 4073)
+
+
+Started GET "/articles" for 127.0.0.1 at 2020-07-11 20:19:12 -0600
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 7.7ms | Allocations: 853)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 27ms (Views: 23.5ms | ActiveRecord: 0.6ms | Allocations: 4290)
+
+
